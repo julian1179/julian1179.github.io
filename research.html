@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Julian Gamboa González</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+        <a href="photos.html">Photos</a>
+    </nav>
+
+    <header>
+        <h1><font color="#d3c8a6">Research</font></h1>
+    </header>
+
+    <section>
+        <!-- Placeholder content for Optical Correlators Section -->
+        <div id="Correlators" class="research-section">
+            <h2>Optical Correlators</h2>
+            <div align="justify">
+				The <em>Hybrid Optoelectronic Correlator<em> (HOC) was proposed and demonstrated at LAPT. I was the first to show that it is capable of producing shift, scale, and rotation invariant (SSRI) target recognition.<br>
+				The maximum operating speed for this device is estimated to be on the order of 5μs, which would allow it to function as an input filter for more resource intensive image processing systems.<br>
+				The HOC uses optics to perform real-time 2D Fourier Transforms (FTs) of arbitrary images. The magnitudes can be directly measured using focal plane arrays (FPAs). To capture the phases of these images, we employ oxx-axis auxiliary plane waves to interfere with the FTs. These signals are detected and transferred into the electronic domain, being added, subtracted, and multiplied using an FPGA on a pixel-by-pixel basis. The resulting signal is subsequently sent back to the optical domain using a spatial light modulator, where it can be FT'd to produce the 2D cross-correlation of the input images. Due to the properties of FTs, this is inherrently shift invariant. To achieve scale and rotation invariance, we incorporate the polar Mellin transform, which produces unique signatures for each input image.<br><br>
+				I recently proposed a new opto-electronic correlation architecture called the <em>Balanced Joint Transform Correlator<em> (BJTC). This design combines techniques from the HOC and the JTC, allowing for the implementation of SSRI target recognition with half of the complexity of the HOC, and orders of magnitude more SNR than the JTC. I am currently working on an implementation that can achieve 720 correlations per second, which is about an order of magnitude faster than the current fastest computational image recognition system.
+			
+			</div>
+			<div class="button-container">
+				<button class="publications-button" onclick="window.location.href='photos.html#Correlators'">
+						Pictures and Figures
+				</button>
+			</div>
+        </div>
+
+        <!-- Placeholder content for PQ:PMMA Volume Holograms Section -->
+        <div id="Holograms" class="research-section">
+            <h2>PQ:PMMA Volume Holograms</h2>
+            <div align="justify">
+				Analog holograms are formed when beams of light interfere inside a photosensitive medium. In a mechanic similar to that of old analog photographs, the light reacts with the material and creates a 3D recording. Because the recording was formed through an interference pattern, it will contain the amplitude and phase information of the beams that were used to create it, forming a grating. The exact properties of the grating can be tailored depending on the writing characteristics, allowing for custom input/output angles, diffraction efficiencies, peak wavelengths, etc. Furthermore, because of the high Bragg selectivity they possess, many holograms can be stacked at the same location, allowing for multiple gratings to occupy the same space. We can take advantage of this to create high density optical storage of images that can be accessed at ultra-high speeds; a technique I often employ in my correlator research. <br>
+				Phenanthrenequinone (PQ) doped poly-methyl(methacrylate) (PMMA) is a holographic polymer that is synthesized as a liquid but cures into a solid, which allows for the fabrication of substrates of arbitrary shapes and sizes with a thickness up to centimeter scale. The PQ is a photosensitive dye that, when exposed to light, reacts with MMA and PMMA to form oligomers. When interfering two beams in this substrate, this reaction effectively modulates the refractive index of the polymer, thus forming the desired phase grating. I have manufactured substrates with refractive index modulations (Δn) above 1e-4, which is among the highest recorded for this material.
+			</div>
+			<div class="button-container">
+				<button class="publications-button" onclick="window.location.href='photos.html#Holograms'">
+						Pictures and Figures
+				</button>
+			</div>
+        </div>
+
+        <!-- Placeholder content for Photonic Integrated Circuits Section -->
+        <div id="PIC" class="research-section">
+            <h2>Photonic Integrated Circuits</h2>
+            <div align="justify">
+				This project is done in collaboration with the Center for Nanoscale Materials (CNM) at the Argonne National Laboratory (ANL).<br>
+				I am currently researching the development of a complete optical system on a chip using an AlGaAs/GaAs substrate. The chip will incorporate lasers, detectors, waveguides, isolators, modulators, and other components. So far, I have demonstrated Y-junctions, passive waveguides, lasers, and detectors on our substrates, and I am now looking to combine these components. However, our AlGaAs substrate has a quantum well for active operation, and quantum well disordering is required in order to combine active and passive components on the same chip.<br>
+				I am also researching acousto-optic ring isolators based on a thin-film LiNbO3-on-insulator substrate.
+			</div>
+			<div class="button-container">
+				<button class="publications-button" onclick="window.location.href='photos.html#Holograms'">
+						Pictures and Figures
+				</button>
+			</div>
+        </div>
+    </section>
+
+    <footer>© 2023 Julian Gamboa González</footer>
+
+    <script>
+        function openProject(url) {
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+</html>
