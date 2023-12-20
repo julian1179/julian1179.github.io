@@ -1,0 +1,145 @@
+/* Basic Config*/
+	body {
+		font-family: "Century Gothic";
+		margin: 0;
+		padding: 0;
+		background-color: #f4f4f4;
+	}
+	
+	tightText {
+		font-family: "Century Gothic";
+		margin: 0;
+		padding: 0;
+		background-color: #f4f4f4;
+		line-height: 1; /* Adjust this value to your preference */
+	}
+
+	header {
+		background-color: #2C4258;
+		color: #fff;
+		padding: 1em;
+		text-align: center;
+		margin-top: 3.3em;
+	}
+
+	section {
+		max-width: 800px;
+		margin: 20px auto;
+		padding: 20px;
+		background-color: #fff;
+		border-radius: 8px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	}
+
+	h1, h2, h3 {
+		color: #333;
+	}
+
+	h2 {
+		border-bottom: 2px solid #2C4258;
+		padding-bottom: 5px;
+		margin-bottom: 20px;
+	}
+
+	p {
+		line-height: 1.6;
+	}
+
+	ul {
+		list-style-type: none;
+		padding: 0;
+	}
+
+	li {
+		margin-bottom: 5px;
+	}
+	
+	ul_bullet {
+		list-style-type: disc; /* Set the type of the bullet, e.g., disc, circle, square */
+		margin-bottom: 20px; /* Adjust margin as needed */
+	}
+
+	footer {
+		text-align: center;
+		padding: 10px;
+		background-color: #2C4258;
+		color: #fff;
+		bottom: 0;
+		width: 100%;
+	}
+
+/* Clickable boxes in the homepage*/
+	.research-experience {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin-top: 20px;
+	}
+
+	.research-box {
+		flex: 0 0 calc(33.33% - 20px);
+		box-sizing: border-box;
+		margin-bottom: 20px;
+		cursor: pointer;
+	}
+
+	.research-box img {
+		width: 100%;
+		height: auto;
+		border-radius: 8px;
+	}
+
+	.research-title {
+		text-align: center;
+		margin-top: 10px;
+		font-weight: bold;
+	}
+
+/* Nav Bar*/
+	nav {
+		display: flex;
+		justify-content: center;
+		background-color: #444;
+		padding: 0.5em 0;
+		position: fixed;
+		width: 100%;
+		top: 0;
+
+	}
+
+	nav a {
+		color: #d3c8a6;
+		text-decoration: none;
+		padding: 0.5em 1em;
+		margin: 0 10px;
+		border-radius: 4px;
+		transition: background-color 0.3s;
+	}
+
+	nav a:hover {
+		background-color: #666;
+	}
+
+/* Button! */
+	.button-container {
+		display: flex;
+		justify-content: center; /* Center the buttons horizontally */
+		margin: 0px 0; /* Adjust margin as needed */
+	}
+	.publications-button {
+		/* display: inline-block; */
+		margin: 20px 10px;
+		padding: 10px 20px;
+		background-color: #2C4258;
+		color: #fff;
+		text-decoration: none;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		font-size: 16px;
+		transition: background-color 0.3s;
+	}
+
+	.publications-button:hover {
+		background-color: #4C6278;
+	}
