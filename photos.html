@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photos - Julian Gamboa González</title>
+    <link rel="stylesheet" href="style.css"> <!-- Include your stylesheet -->
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+        <a href="photos.html">Photos</a>
+    </nav>
+
+    <header>
+        <h1><font color="#d3c8a6">Photos</font></h1>
+    </header>
+	
+	<div id="popup-container" class="popup-container">
+		<div id="popup-content" class="popup-content">
+			<img id="popup-image" class="popup-image" alt="Full Resolution Image">
+		</div>
+	</div>
+
+
+    <section>
+        <!-- Project 1: Optical Correlators -->
+        <div id="Correlators" class="project-section">
+            <h2>Optical Correlators</h2>
+            <!-- Row 1 -->
+			<div class="image-container">
+                <div class="image-box" onclick="openPopup('Images/proj_HOC.jpg')">
+					<img src="Images/proj_HOC.jpg" alt="Project 1 Image 1">
+					<p class="caption">Caption for Image 1</p>
+				</div>
+
+				<div class="image-box" onclick="openPopup('Images/proj_HOC.jpg')">
+					<img src="Images/proj_HOC.jpg" alt="Project 1 Image 2">
+					<p class="caption">Caption for Image 2</p>
+				</div>
+
+				<div class="image-box" onclick="openPopup('Images/proj_HOC.jpg')">
+					<img src="Images/proj_HOC.jpg" alt="Project 1 Image 3">
+					<p class="caption">Caption for Image 3</p>
+				</div>
+                <!-- Add more images and captions as needed -->
+            </div>
+            <!-- Row 2 -->
+			<div class="image-container">
+                <div class="image-box" onclick="openPopup('Images/proj_HOC.jpg')">
+					<img src="Images/proj_HOC.jpg" alt="Project 1 Image 1">
+					<p class="caption">Caption for Image 1</p>
+				</div>
+
+				<div class="image-box" onclick="openPopup('Images/proj_HOC.jpg')">
+					<img src="Images/proj_HOC.jpg" alt="Project 1 Image 2">
+					<p class="caption">Caption for Image 2</p>
+				</div>
+
+				<div class="image-box" onclick="openPopup('Images/proj_HOC.jpg')">
+					<img src="Images/proj_HOC.jpg" alt="Project 1 Image 3">
+					<p class="caption">Caption for Image 3</p>
+				</div>
+                <!-- Add more images and captions as needed -->
+            </div>
+        </div>
+
+        <!-- Project 2: PQ:PMMA Volume Holograms -->
+        <div id="Holograms" class="project-section">
+            <h2>PQ:PMMA Volume Holograms</h2>
+            <div class="image-container">
+                <!-- Images and captions for Project 2 -->
+            </div>
+        </div>
+
+        <!-- Project 3: Photonic Integrated Circuits -->
+        <div id="PIC" class="project-section">
+            <h2>Photonic Integrated Circuits</h2>
+            <div class="image-container">
+                <!-- Images and captions for Project 3 -->
+            </div>
+        </div>
+
+        <!-- Volunteering & Outreach Section! -->
+        <div id="Outreach" class="project-section">
+            <h2>Volunteering & Outreach</h2>
+            <div class="image-container">
+                <!-- Images and captions for Volunteering & Outreach -->
+            </div>
+        </div>
+    </section>
+
+    <footer>© 2023 Julian Gamboa González</footer>
+
+<script>
+    function openPopup(imageSrc) {
+        var popupContainer = document.getElementById('popup-container');
+        var popupImage = document.getElementById('popup-image');
+
+        popupImage.src = imageSrc;
+        popupContainer.style.display = 'flex';
+
+        // Close the popup when clicking outside the image
+        popupContainer.onclick = function() {
+            popupContainer.style.display = 'none';
+            popupContainer.onclick = null;
+        };
+    }
+</script>
+
+</body>
+</html>
