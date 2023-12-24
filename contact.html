@@ -8,7 +8,8 @@
 </head>
 <body>
 
-    <nav>
+	<nav id="main-nav"> <!-- Navigation bar =============================-->
+		<div class="menu-icon" onclick="toggleMenu()">☰</div>
         <a href="index.html">Home</a>
         <a href="research.html">Research</a>
         <a href="publications.html">Publications</a>
@@ -40,6 +41,13 @@
     </section>
 
     <footer>© 2023 Julian Gamboa González</footer>
+
+<script>
+	function toggleMenu() {
+		var nav = document.getElementById('main-nav');
+		nav.classList.toggle('show');
+	}
+</script>
 
 </body>
 </html>

@@ -119,7 +119,44 @@
 	nav a:hover {
 		background-color: #666;
 	}
+	/* Mobile-friendly navigation styles */
+	@media screen and (max-width: 620px) {
+		nav {
+			flex-direction: column;
+			align-items: center;
+		}
 
+		nav a {
+			margin: 10px 0;
+			display: none; /* Hide the navigation links by default on small screens */
+		}
+
+		.menu-icon {
+			display: block;
+			cursor: pointer;
+			font-size: 24px;
+			margin-bottom: 10px;
+		}
+
+		.show a {
+			display: block;
+		}
+	}
+	/* Hide the hamburger icon on larger screens */
+	@media screen and (min-width: 621px) {
+		.menu-icon {
+			display: none;
+		}
+
+		nav {
+			flex-direction: row;
+		}
+
+		nav a {
+			display: block; /* Show the navigation links by default on larger screens */
+			margin: 0 10px;
+		}
+	}
 /* Button! */
 	.button-container {
 		display: flex;

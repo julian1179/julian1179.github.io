@@ -9,7 +9,8 @@
   
   <body>
   	
-	<nav> <!-- Navigation bar =============================-->
+	<nav id="main-nav"> <!-- Navigation bar =============================-->
+		<div class="menu-icon" onclick="toggleMenu()">☰</div>
         <a href="index.html">Home</a>
         <a href="research.html">Research</a>
         <a href="publications.html">Publications</a>
@@ -185,8 +186,12 @@ get a more detailed description.<br>
         }
 </script>
 
-
+<script>
+	function toggleMenu() {
+		var nav = document.getElementById('main-nav');
+		nav.classList.toggle('show');
+	}
+</script>
   
-
 
 </body></html>
