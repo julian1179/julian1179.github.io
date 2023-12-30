@@ -26,10 +26,16 @@
         <div id="Correlators" class="research-section">
             <h2>Optical Correlators</h2>
             <div align="justify">
-				The <em>Hybrid Optoelectronic Correlator<em> (HOC) was proposed and demonstrated at LAPT. I was the first to show that it is capable of producing shift, scale, and rotation invariant (SSRI) target recognition.<br>
-				The maximum operating speed for this device is estimated to be on the order of 5μs, which would allow it to function as an input filter for more resource intensive image processing systems.<br>
-				The HOC uses optics to perform real-time 2D Fourier Transforms (FTs) of arbitrary images. The magnitudes can be directly measured using focal plane arrays (FPAs). To capture the phases of these images, we employ oxx-axis auxiliary plane waves to interfere with the FTs. These signals are detected and transferred into the electronic domain, being added, subtracted, and multiplied using an FPGA on a pixel-by-pixel basis. The resulting signal is subsequently sent back to the optical domain using a spatial light modulator, where it can be FT'd to produce the 2D cross-correlation of the input images. Due to the properties of FTs, this is inherrently shift invariant. To achieve scale and rotation invariance, we incorporate the polar Mellin transform, which produces unique signatures for each input image.<br><br>
-				I recently proposed a new opto-electronic correlation architecture called the <em>Balanced Joint Transform Correlator<em> (BJTC). This design combines techniques from the HOC and the JTC, allowing for the implementation of SSRI target recognition with half of the complexity of the HOC, and orders of magnitude more SNR than the JTC. I am currently working on an implementation that can achieve 720 correlations per second, which is about an order of magnitude faster than the current fastest computational image recognition system.
+				<strong>Note:</strong> The majority of my publications are on this topic thanks to the quick turnaround between experiments. However, I have dedicated roughly equal amounts of time to all three topics on this page, which share the general topics of interferometry and coupled waves.<br><br>
+				
+				<strong>Summary:</strong><br>
+				The <em>Hybrid Optoelectronic Correlator<em> (HOC) was proposed and demonstrated at LAPT. I was the first to show that it is capable of producing shift, scale, and rotation invariant (SSRI) target recognition. The maximum operating speed for this device is estimated to be on the order of 5μs, which would allow it to function as an input filter for more resource intensive image processing systems. I've been working on both the optical and electronic segments in order to approach this maximum speed. Currently, it is operating at 720 correlations per second using custom TI DMD spatial light modulators (SLMs) and high-speed cameras, all of which I've programmed in C++ with OpenCV. A previous prototype used a Xilinx FPGA with an ONSemi focal plane array (FPA).<br><br>
+				
+				<strong>Current work:</strong><br>
+				I recently proposed a new opto-electronic correlation architecture called the <em>Balanced Joint Transform Correlator<em> (BJTC). This design combines techniques from the HOC and the traditional JTC, allowing for the implementation of SSRI target recognition with half of the complexity of the HOC, and orders of magnitude more SNR than the JTC. The current implementation can operate at 720 correlations per second, which is about an order of magnitude faster than the current fastest computational image recognition system. I am also simulating the use of these opto-electronic correlators as machine learning accelerators, with very promising results!<br><br>
+				
+				<strong>Context:</strong><br>
+				The HOC uses optics to perform real-time 2D Fourier Transforms (FTs) of arbitrary images. The magnitudes can be directly measured using FPAs. To capture the phases of these images, we employ off-axis auxiliary plane waves to interfere with the FTs. These signals are detected and transferred into the electronic domain, being added, subtracted, and multiplied on a pixel-by-pixel basis. The resulting signal is subsequently sent back to the optical domain using an SLM, where it can be FT'd to produce the 2D cross-correlation of the input images. Due to the properties of FTs, this is inherrently shift invariant. To achieve scale and rotation invariance, we incorporate the polar Mellin transform, which produces unique signatures for each input image.<br><br>
 			
 			</div>
 			<div class="button-container">
@@ -43,8 +49,17 @@
         <div id="Holograms" class="research-section">
             <h2>PQ:PMMA Volume Holograms</h2>
             <div align="justify">
-				Analog holograms are formed when beams of light interfere inside a photosensitive medium. In a mechanic similar to that of old analog photographs, the light reacts with the material and creates a 3D recording. Because the recording was formed through an interference pattern, it will contain the amplitude and phase information of the beams that were used to create it, forming a grating. The exact properties of the grating can be tailored depending on the writing characteristics, allowing for custom input/output angles, diffraction efficiencies, peak wavelengths, etc. Furthermore, because of the high Bragg selectivity they possess, many holograms can be stacked at the same location, allowing for multiple gratings to occupy the same space. We can take advantage of this to create high density optical storage of images that can be accessed at ultra-high speeds; a technique I often employ in my correlator research. <br>
-				Phenanthrenequinone (PQ) doped poly-methyl(methacrylate) (PMMA) is a holographic polymer that is synthesized as a liquid but cures into a solid, which allows for the fabrication of substrates of arbitrary shapes and sizes with a thickness up to centimeter scale. The PQ is a photosensitive dye that, when exposed to light, reacts with MMA and PMMA to form oligomers. When interfering two beams in this substrate, this reaction effectively modulates the refractive index of the polymer, thus forming the desired phase grating. I have manufactured substrates with refractive index modulations (Δn) above 1e-4, which is among the highest recorded for this material.
+				<strong>Summary:</strong><br>
+				My research into PQ:PMMA volume holograms has focused on the fabrication of the material, its characterization, and overall applications. This polymer is particularly interesting because it does not suffer from post-exposure shrinkage and can be manufactured at up to centimeter thickness. This allows for the creation of self-sustaining holographic optical elements (HOEs) with extremely selective angular and spectral diffraction profiles (i.e., with high selectivity). As a tradeoff, it has a low maximum refractive index modulation (Δn) when compared to thin-film materials (I've achieved slightly above 1e-4, which is among the highest in the literature). I've used this material to design wavelength division multiplexers (WDM) and demultiplexers (DeMUX) for telecommunications (~1550 nm) and monocular passive ranging (~760 nm). This, of course, requires extensive simulation and modelling of coupled waves travelling through arbitrarily modulated gratings. I also designed and constructed a fully automated writing and characterization setup with MatLab in order to improve repeatability and accuracy.<br><br>
+				
+				<strong>Current work:</strong><br>
+				The use of thick HOEs is a double-edged sword: it allows us to achieve very high spectral selectivity, at the cost of a very low angular bandwidth. I am currently working on improving the field of view (i.e., angular selectivity) of these devices. I recently tested the use of cylindrical HOEs with lensed writing beams, which yielded an improvement of nearly two orders of magnitude (from ~20 mDeg to ~1 Deg). Nonetheless, this is not sufficient for most applications, and so I am now working on a new set of PQ:PMMA samples that are molded as cylindrical lenses. The simulations show that we should be able to make simple spherical lenses, and then correct for spherical and chromatic abberations using holograms written into the lenses.<br><br>
+				
+				<strong>Context:</strong><br>
+				Analog holograms are formed when beams of light interfere inside a photosensitive medium. In a mechanic similar to that of old analog photographs, the light reacts with the material and creates a 3D recording. Because the recording was formed through an interference pattern, it will contain the amplitude and phase information of the beams that were used to create it, forming a grating. The exact properties of the grating can be tailored depending on the writing characteristics, allowing for custom input/output angles, diffraction efficiencies, peak wavelengths, etc. Furthermore, because of the high Bragg selectivity they possess, many holograms can be stacked at the same location, allowing for multiple gratings to occupy the same space. We can take advantage of this to create high density optical storage of images that can be accessed at ultra-high speeds; a technique I often employ in my correlator research. <br><br>
+				
+				Phenanthrenequinone (PQ) doped poly-methyl(methacrylate) (PMMA) is a holographic polymer that is synthesized as a liquid but cures into a solid, which allows for the fabrication of substrates of arbitrary shapes and sizes with a thickness up to centimeter scale. The PQ is a photosensitive dye that, when exposed to light, reacts with MMA and PMMA to form oligomers. When interfering two beams in this substrate, this reaction effectively modulates the refractive index of the polymer, thus forming the desired phase grating. I have manufactured substrates with Δn above 1e-4, which is among the highest recorded for this material.<br><br>
+				
 			</div>
 			<div class="button-container">
 				<button class="publications-button" onclick="window.location.href='photos.html#Holograms'">
@@ -57,12 +72,19 @@
         <div id="PIC" class="research-section">
             <h2>Photonic Integrated Circuits</h2>
             <div align="justify">
+				<strong>Summary:</strong><br>
 				This project is done in collaboration with the Center for Nanoscale Materials (CNM) at the Argonne National Laboratory (ANL).<br>
-				I am currently researching the development of a complete optical system on a chip using an AlGaAs/GaAs substrate. The chip will incorporate lasers, detectors, waveguides, isolators, modulators, and other components. So far, I have demonstrated Y-junctions, passive waveguides, lasers, and detectors on our substrates, and I am now looking to combine these components. However, our AlGaAs substrate has a quantum well for active operation, and quantum well disordering is required in order to combine active and passive components on the same chip.<br>
-				I am also researching acousto-optic ring isolators based on a thin-film LiNbO3-on-insulator substrate.
+				My research into the development of an optical system on a chip is performed primarily on an AlGaAs/GaAs substrate. The chip will incorporate lasers, detectors, waveguides, isolators, modulators, and other components. So far, I have demonstrated Y-junctions, passive waveguides, lasers, and detectors on our substrates. In addition to designing and fabricating these devices, I've had to design and construct custom characterization setups. I recently started researching acousto-optic ring isolators based on a thin-film LiNbO3-on-insulator substrate, as this would bypass the need for a magnetic garnet.<br><br>
+				
+				<strong>Current work:</strong><br>
+				I am currently focusing on the coupled-wave analysis needed for the design of acousto-optic ring isolators on LiNbO3.
+				<br><br>
+				
+				<strong>Context:</strong><br>
+				However, our AlGaAs substrate has a quantum well for active operation, and quantum well disordering (QWD) is required in order to combine active and passive components on the same chip. The use of an SrF4 mask prior to rapid thermal processing has allowed me to selectively perform QWD without drastically affecting non-disordered areas.<br><br>
 			</div>
 			<div class="button-container">
-				<button class="publications-button" onclick="window.location.href='photos.html#Holograms'">
+				<button class="publications-button" onclick="window.location.href='photos.html#PIC'">
 						Pictures and Figures
 				</button>
 			</div>
