@@ -39,11 +39,25 @@
 				I have a repo on Github with MatLab codes for controlling the most common instruments in our lab that didn't have pre-existing libraries available. My colleagues and I use these codes extensively when automating our experiments.<br><br>
 		 
 				<div class="button-container">
-					<button class="publications-button" onclick="window.open('https://github.com/julian1179/InstrumentControl', '_blank')">
-							Coupled beam power transfer
+					<button class="publications-button" onclick="window.open('https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/Finite_Difference_Fourier_Series_Grating_Sim.m, '_blank')">
+							Coupled Beam Power Transfer
 					</button>
 				</div>
-				This code allows you to input the writing parameters for a series of multiplexed gratings. It first computes the equivalent k-vectors at the reading wavelengths, and then uses a finite-difference technique to determine the power transfer from the input beam to the coupled beams as they propagate through the medium.<br><br>
+				This simulation code allows you to input the writing parameters for a series of multiplexed gratings. It first computes the equivalent k-vectors at the reading wavelengths, and then uses a finite-difference technique to determine the power transfer from the input beam to the coupled beams as they propagate through the medium.<br><br>
+		 
+				<div class="button-container">
+					<button class="publications-button" onclick="window.open('https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/HMD_Writing_AutoPhi.m', '_blank')">
+							Automated HOE Writing
+					</button>
+				</div>
+				This automation code is perhaps one of the most used programs I've written. It connects to the automated HOE writing system I made for my PQ:PMMA research and automatically exposes all of the programmed gratings. The system is programmed via a CSV that lists the relevant parameters (writing angles, exposure times, etc). The code is modular and can be used for single-grating or multiplexed-grating exposures. It relies heavily on codes found in my "Instrument Control" github repo.<br><br>
+		 
+				<div class="button-container">
+					<button class="publications-button" onclick="window.open('https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/Measure_Angular_Selectivity_AutoPhi.m', '_blank')">
+							HOE Angular Selectivity Measurement
+					</button>
+				</div>
+				This automated characterization code is used to scan an HOE over a range of reading angles and measure the diffraction efficiency at each one. Thanks to this code, I'm able to take measurements over an arbitrarily large range with up to 0.0005° resolution. For a simple HOE disk with a dozen or so writing locations, this automated characterization can take as little as an hour (as opposed to several days if done by hand).<br><br>
 
 			
 
@@ -55,13 +69,18 @@
             <div align="justify">
 		 
 				<div class="button-container">
-					<button class="publications-button" onclick="window.open('https://github.com/julian1179/InstrumentControl', '_blank')">
-							Name
+					<button class="publications-button" onclick="window.open('https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/parallel_PMT.cpp', '_blank')">
+							High-Speed PMT via Parallel Computing
 					</button>
 				</div>
-				Description.<br><br>
-
-			
+				The polar Melin transform (PMT) is an important part of my optical correlator research, as it allows us to perform correlations in a shift, scale, and rotation invariant manner. Notably, the PMT can be computed as a log-polar coordinate transformation of the FT. This code uses CPU parallelization along with a pre-computing technique in order to perform the PMT at the highest speed ever recorded. To date, I've achieved speeds below 900 µs per conversion for full HD images (1920 x 1080 pixels). This code is what enables 720 fps operation of an opto-electronic correlator. This code took about a month to develop.<br><br>
+		 
+				<div class="button-container">
+					<button class="publications-button" onclick="window.open('https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/ft2pmt.cpp', '_blank')">
+							Convert from FT to PMT
+					</button>
+				</div>
+				This simple code is used to compute the PMT for simulation purposes when speed is not an issue. It performs the same task as the "high-speed" code above, albeit orders of magnitude slower. This is a good example of how performance efficiency is a tradeoff with coding efficiency. This code took about 20 minutes to write.<br><br>
 
         </div>
 		
@@ -71,11 +90,25 @@
             <div align="justify">
 		 
 				<div class="button-container">
-					<button class="publications-button" onclick="window.open('https://github.com/julian1179/InstrumentControl', '_blank')">
-							Name
+					<button class="publications-button" onclick="window.open('https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/Im_PMT_top.vhd', '_blank')">
+							FPGA PMT Top Code
 					</button>
 				</div>
-				Description.<br><br>
+				This is the top-level code for an FPGA-based FT to PMT converter. This particular example connects to a computer via UART (USB). The execution speed of an FPGA can be much faster than a computer for these kinds of tasks, but communicating the necessary information typically creates a bottleneck. I later switched to a PCIe connection for this reason.<br><br>
+		 
+				<div class="button-container">
+					<button class="publications-button" onclick="window.open('https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/VDMA_Read.vhd', '_blank')">
+							FPGA Direct Memory Access Reading
+					</button>
+				</div>
+				This code configures and communicates with a direct memory access (DMA) module that is configured as a separate device in the FPGA. The DMA connects to a computer via PCIe and gives it access to the FPGA's RAM. This module reads from RAM and sends the data to the DMA module to be transmitted to the computer, while ensuring proper formatting and timing. This code has a great example of how a state machine is implemented to comply with communication standards and timing.<br><br>
+		 
+				<div class="button-container">
+					<button class="publications-button" onclick="window.open('https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/VDMA_Write.vhd', '_blank')">
+							FPGA Direct Memory Access Writing
+					</button>
+				</div>
+				This code is similar to the "reading" code above, albeit now the data is received from a camera module and subsequently stored in RAM. In this case, the camera has priority control over the data, and so the code must maintain proper synchronization with the "Start of Frame" and "End of Line" signals.<br><br>
 
 			
 
