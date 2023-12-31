@@ -131,7 +131,7 @@ i = 3;
 lambda = lambda_rd(i); %lam_wr;
 n = n_rd(i);%n_wr;
 
-steps = 10;
+steps = 1000;
 d = 2.265e-3 ./steps; % 2.265e-3
 dn = 6.62e-5;
 
@@ -180,7 +180,7 @@ end
 
 for j=1:steps
     disp('-----------');
-    disp(sprintf('j = %d, d=%.3f mm\n',j,j.*d.*1000));
+%     disp(sprintf('j = %d, d=%.3f mm\n',j,j.*d.*1000));
     A_gain = zeros(length(A),length(A));
     
     for x=1:size(A,2) % Input beam index
