@@ -1,56 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Julian Gamboa González</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Julian Gamboa González</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#1a2b3c;--navy2:#243447;--gold:#c9a84c;--gold-lt:#e2c97e;--cream:#f5f0e8;--text:#1e1e1e;--muted:#5a6270;--line:rgba(201,168,76,.25);--radius:4px;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:var(--text);background:var(--cream);overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:center;background:var(--navy);height:52px;border-bottom:1px solid rgba(201,168,76,.2);}
+    nav a{color:#b8c5d4;text-decoration:none;font-size:13px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;padding:0 22px;height:100%;display:flex;align-items:center;border-right:1px solid rgba(255,255,255,.06);transition:color .2s,background .2s;}
+    nav a:first-of-type{border-left:1px solid rgba(255,255,255,.06);}
+    nav a:hover,nav a.active{color:var(--gold);background:rgba(201,168,76,.07);}
+    .menu-icon{display:none;color:var(--gold);font-size:22px;cursor:pointer;padding:0 20px;height:100%;align-items:center;}
+    .page-header{margin-top:52px;background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 60%,#1e3a52 100%);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;}
+    .page-header::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(201,168,76,.03) 80px,rgba(201,168,76,.03) 81px),repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(201,168,76,.03) 80px,rgba(201,168,76,.03) 81px);pointer-events:none;}
+    .page-header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;color:#fff;position:relative;z-index:1;}
+    .page-header h1 span{color:var(--gold);}
+    .page-header p{color:#8ca3bb;font-size:.95rem;margin-top:8px;position:relative;z-index:1;}
+    main{max-width:700px;margin:0 auto;padding:64px 24px 80px;}
+    .section-heading{display:flex;align-items:center;gap:16px;margin-bottom:28px;}
+    .section-heading h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--navy);white-space:nowrap;}
+    .section-heading::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gold) 0%,transparent 100%);opacity:.4;}
+    footer{background:var(--navy);color:#5a7a9a;text-align:center;padding:28px 20px;font-size:.82rem;letter-spacing:.04em;}
+    footer a{color:var(--gold);text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+
+    /* Contact-specific */
+    .contact-card{background:#fff;border-radius:var(--radius);box-shadow:0 1px 8px rgba(0,0,0,.07);overflow:hidden;margin-bottom:16px;border-left:3px solid var(--gold);display:flex;align-items:center;gap:0;}
+    .contact-icon{width:54px;min-width:54px;display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,.08);font-size:1.3rem;padding:20px 0;align-self:stretch;}
+    .contact-body{padding:16px 20px;flex:1;}
+    .contact-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+    .contact-value{font-size:.98rem;color:var(--navy);font-weight:400;}
+    .contact-value a{color:var(--navy);text-decoration:none;transition:color .2s;}
+    .contact-value a:hover{color:var(--gold);}
+    .profiles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin-top:28px;}
+    .profile-btn{background:var(--navy);border-radius:var(--radius);padding:18px 20px;text-decoration:none;display:flex;flex-direction:column;gap:6px;transition:background .2s,transform .2s;}
+    .profile-btn:hover{background:var(--navy2);transform:translateY(-2px);}
+    .profile-btn-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);opacity:.8;}
+    .profile-btn-name{font-size:.95rem;color:#fff;font-weight:500;}
+    .profile-btn-sub{font-size:.78rem;color:#7a9ab8;}
+
+    @media(max-width:640px){
+      nav a{padding:0 12px;font-size:12px;display:none;}
+      nav.show a{display:flex;}
+      .menu-icon{display:flex;}
+      nav{flex-wrap:wrap;height:auto;min-height:52px;padding:12px 0;}
+      nav.show{flex-direction:column;}
+    }
+  </style>
 </head>
 <body>
 
-	<nav id="main-nav"> <!-- Navigation bar =============================-->
-		<div class="menu-icon" onclick="toggleMenu()">☰</div>
-        <a href="index.html">Home</a>
-        <a href="research.html">Research</a>
-        <a href="publications.html">Publications</a>
-        <a href="code.html">Codes</a>
-        <a href="contact.html">Contact</a>
-        <a href="photos.html">Photos</a>
-    </nav>
+<nav id="main-nav">
+  <div class="menu-icon" onclick="this.parentElement.classList.toggle('show')">☰</div>
+  <a href="index.html">Home</a>
+  <a href="research.html">Research</a>
+  <a href="publications.html">Publications</a>
+  <a href="code.html">Codes</a>
+  <a href="contact.html" class="active">Contact</a>
+  <a href="photos.html">Photos</a>
+</nav>
 
-    <header>
-        <h1><font color="#d3c8a6">Contact</font></h1>
-    </header>
+<div class="page-header">
+  <h1>Get in <span>Touch</span></h1>
+  <p>I'm always happy to discuss research, collaborations, or new opportunities</p>
+</div>
 
-    <section>
-        <!-- Placeholder content for Optical Correlators Section -->
-        <div id="Correlators" class="research-section">
-            <h2 align="center">email: juliangamboa_21@yahoo.com</h2>
+<main>
 
-			<div class="button-container">
-				<button class="publications-button" onclick="window.open('https://scholar.google.com/citations?user=kn-VcE4AAAAJ&amp;hl=en', '_blank')">
-						Google Scholar
-				</button>
-				<button class="publications-button" onclick="window.open('https://www.linkedin.com/in/julian-gamboa-gonzalez/', '_blank')">
-					LinkedIn
-				</button>
-				<button class="publications-button" onclick="window.open('https://www.researchgate.net/profile/Julian-Gamboa-4', '_blank')">
-					ResearchGate
-				</button>
-			</div>
-        </div>
-    </section>
+  <div class="section-heading"><h2>Contact Info</h2></div>
 
-    <footer>© 2026 Julian Gamboa González</footer>
+  <div class="contact-card">
+    <div class="contact-icon">✉</div>
+    <div class="contact-body">
+      <div class="contact-label">Primary Email</div>
+      <div class="contact-value"><a href="mailto:JulianGamboa_21@yahoo.com">JulianGamboa_21 at yahoo.com</a></div>
+    </div>
+  </div>
 
-<script>
-	function toggleMenu() {
-		var nav = document.getElementById('main-nav');
-		nav.classList.toggle('show');
-	}
-</script>
+  <div class="contact-card">
+    <div class="contact-icon">🌐</div>
+    <div class="contact-body">
+      <div class="contact-label">Personal Website</div>
+      <div class="contact-value"><a href="http://www.JulianGamboa.com/" target="_blank">www.JulianGamboa.com</a></div>
+    </div>
+  </div>
+
+  <div style="margin-top:44px;">
+    <div class="section-heading"><h2>Professional Profiles</h2></div>
+    <div class="profiles-grid">
+      <a class="profile-btn" href="https://scholar.google.com/citations?user=kn-VcE4AAAAJ&hl=en" target="_blank">
+        <span class="profile-btn-label">Academic</span>
+        <span class="profile-btn-name">Google Scholar</span>
+        <span class="profile-btn-sub">156 citations · h-index 7</span>
+      </a>
+      <a class="profile-btn" href="https://www.linkedin.com/in/julian-gamboa-gonzalez/" target="_blank">
+        <span class="profile-btn-label">Professional</span>
+        <span class="profile-btn-name">LinkedIn</span>
+        <span class="profile-btn-sub">Julian Gamboa González</span>
+      </a>
+      <a class="profile-btn" href="https://www.researchgate.net/profile/Julian-Gamboa-4" target="_blank">
+        <span class="profile-btn-label">Research</span>
+        <span class="profile-btn-name">ResearchGate</span>
+        <span class="profile-btn-sub">Julian Gamboa</span>
+      </a>
+      <a class="profile-btn" href="https://github.com/julian1179" target="_blank">
+        <span class="profile-btn-label">Code</span>
+        <span class="profile-btn-name">GitHub</span>
+        <span class="profile-btn-sub">julian1179</span>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 Julian Gamboa González &nbsp;·&nbsp;
+  <a href="http://www.JulianGamboa.com/">JulianGamboa.com</a>
+</footer>
 
 </body>
 </html>
-
-
