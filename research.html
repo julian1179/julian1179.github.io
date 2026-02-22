@@ -1,111 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research - Julian Gamboa González</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research — Julian Gamboa González</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#1a2b3c; --navy2:#243447; --gold:#c9a84c; --gold-lt:#e2c97e; --cream:#f5f0e8; --text:#1e1e1e; --muted:#5a6270; --line:rgba(201,168,76,.25); --radius:4px; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:var(--text);background:var(--cream);overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:center;background:var(--navy);height:52px;border-bottom:1px solid rgba(201,168,76,.2);}
+    nav a{color:#b8c5d4;text-decoration:none;font-size:13px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;padding:0 22px;height:100%;display:flex;align-items:center;border-right:1px solid rgba(255,255,255,.06);transition:color .2s,background .2s;}
+    nav a:first-of-type{border-left:1px solid rgba(255,255,255,.06);}
+    nav a:hover,nav a.active{color:var(--gold);background:rgba(201,168,76,.07);}
+    .menu-icon{display:none;color:var(--gold);font-size:22px;cursor:pointer;padding:0 20px;height:100%;align-items:center;}
+    .page-header{margin-top:52px;background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 60%,#1e3a52 100%);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;}
+    .page-header::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(201,168,76,.03) 80px,rgba(201,168,76,.03) 81px),repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(201,168,76,.03) 80px,rgba(201,168,76,.03) 81px);pointer-events:none;}
+    .page-header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;color:#fff;position:relative;z-index:1;}
+    .page-header h1 span{color:var(--gold);}
+    .page-header p{color:#8ca3bb;font-size:.95rem;margin-top:8px;position:relative;z-index:1;}
+    main{max-width:860px;margin:0 auto;padding:48px 24px 80px;}
+    .section{margin-bottom:56px;}
+    .section-heading{display:flex;align-items:center;gap:16px;margin-bottom:28px;}
+    .section-heading h2{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:600;color:var(--navy);white-space:nowrap;}
+    .section-heading::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gold) 0%,transparent 100%);opacity:.4;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;font-size:13px;font-weight:500;letter-spacing:.05em;text-decoration:none;border-radius:var(--radius);transition:all .22s;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;}
+    .btn-gold{background:var(--gold);color:var(--navy);}
+    .btn-gold:hover{background:var(--gold-lt);transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:var(--navy);border:1px solid rgba(26,43,60,.25);}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-1px);}
+    footer{background:var(--navy);color:#5a7a9a;text-align:center;padding:28px 20px;font-size:.82rem;letter-spacing:.04em;}
+    footer a{color:var(--gold);text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+
+    /* Research-specific */
+    .research-block{background:#fff;border-radius:var(--radius);box-shadow:0 1px 8px rgba(0,0,0,.07);overflow:hidden;margin-bottom:32px;}
+    .research-block-header{background:linear-gradient(90deg,var(--navy) 0%,var(--navy2) 100%);padding:24px 32px;display:flex;align-items:center;gap:18px;}
+    .research-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:.12em;opacity:.7;}
+    .research-block-header h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;color:#fff;}
+    .research-body{padding:28px 32px;}
+    .tag{display:inline-block;font-size:.74rem;font-weight:500;padding:2px 10px;border-radius:20px;background:rgba(201,168,76,.12);color:#7a5c00;border:1px solid rgba(201,168,76,.28);margin:0 4px 6px 0;}
+    .research-body p{font-size:.95rem;color:#2e3a46;line-height:1.8;margin-bottom:14px;}
+    .research-body strong{color:var(--navy);font-weight:500;}
+    .sub-heading{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:20px 0 8px;}
+    .research-footer{padding:0 32px 24px;display:flex;gap:12px;flex-wrap:wrap;}
+
+    @media(max-width:640px){
+      nav a{padding:0 12px;font-size:12px;display:none;}
+      nav.show a{display:flex;}
+      .menu-icon{display:flex;}
+      nav{flex-wrap:wrap;height:auto;min-height:52px;padding:12px 0;}
+      nav.show{flex-direction:column;}
+      .research-block-header,.research-body,.research-footer{padding-left:20px;padding-right:20px;}
+    }
+  </style>
 </head>
 <body>
 
-	<nav id="main-nav"> <!-- Navigation bar =============================-->
-		<div class="menu-icon" onclick="toggleMenu()">☰</div>
-        <a href="index.html">Home</a>
-        <a href="research.html">Research</a>
-        <a href="publications.html">Publications</a>
-        <a href="code.html">Codes</a>
-        <a href="contact.html">Contact</a>
-        <a href="photos.html">Photos</a>
-    </nav>
+<nav id="main-nav">
+  <div class="menu-icon" onclick="this.parentElement.classList.toggle('show')">☰</div>
+  <a href="index.html">Home</a>
+  <a href="research.html" class="active">Research</a>
+  <a href="publications.html">Publications</a>
+  <a href="code.html">Codes</a>
+  <a href="contact.html">Contact</a>
+  <a href="photos.html">Photos</a>
+</nav>
 
-    <header>
-        <h1><font color="#d3c8a6">Research</font></h1>
-    </header>
+<div class="page-header">
+  <h1>Research <span>Areas</span></h1>
+  <p>Three interconnected topics rooted in interferometry and coupled-wave theory</p>
+</div>
 
-    <section>
-        <!-- Placeholder content for Optical Correlators Section -->
-        <div id="Correlators" class="research-section">
-            <h2>Optical Correlators</h2>
-            <div align="justify">
-				<strong>Note:</strong> The majority of my publications are on this topic thanks to the quick turnaround between experiments. However, I have dedicated roughly equal amounts of time to all three topics on this page, which share the general topics of interferometry and coupled waves.<br><br>
-				
-				<strong>Summary:</strong><br>
-				The <em>Hybrid Optoelectronic Correlator<em> (HOC) was proposed and demonstrated at LAPT. I was the first to show that it is capable of producing shift, scale, and rotation invariant (SSRI) target recognition. The maximum operating speed for this device is estimated to be on the order of 5μs, which would allow it to function as an input filter for more resource intensive image processing systems. I've been working on both the optical and electronic segments in order to approach this maximum speed. Currently, it is operating at 720 correlations per second using custom TI DMD spatial light modulators (SLMs) and high-speed cameras, all of which I've programmed in C++ with OpenCV. A previous prototype used a Xilinx FPGA with an ONSemi focal plane array (FPA).<br><br>
-				
-				<strong>Current work:</strong><br>
-				I recently proposed a new opto-electronic correlation architecture called the <em>Balanced Joint Transform Correlator<em> (BJTC). This design combines techniques from the HOC and the traditional JTC, allowing for the implementation of SSRI target recognition with half of the complexity of the HOC, and orders of magnitude more SNR than the JTC. The current implementation can operate at 720 correlations per second, which is about an order of magnitude faster than the current fastest computational image recognition system. I am also simulating the use of these opto-electronic correlators as machine learning accelerators, with very promising results!<br><br>
-				
-				<strong>Context:</strong><br>
-				The HOC uses optics to perform real-time 2D Fourier Transforms (FTs) of arbitrary images. The magnitudes can be directly measured using FPAs. To capture the phases of these images, we employ off-axis auxiliary plane waves to interfere with the FTs. These signals are detected and transferred into the electronic domain, being added, subtracted, and multiplied on a pixel-by-pixel basis. The resulting signal is subsequently sent back to the optical domain using an SLM, where it can be FT'd to produce the 2D cross-correlation of the input images. Due to the properties of FTs, this is inherrently shift invariant. To achieve scale and rotation invariance, we incorporate the polar Mellin transform, which produces unique signatures for each input image.<br><br>
-			
-			</div>
-			<div class="button-container">
-				<button class="publications-button" onclick="window.location.href='photos.html#Correlators'">
-						Pictures and Figures
-				</button>
-			</div>
-        </div>
+<main>
 
-        <!-- Placeholder content for PQ:PMMA Volume Holograms Section -->
-        <div id="Holograms" class="research-section">
-            <h2>PQ:PMMA Volume Holograms</h2>
-            <div align="justify">
-				<strong>Summary:</strong><br>
-				My research into PQ:PMMA volume holograms has focused on the fabrication of the material, its characterization, and overall applications. This polymer is particularly interesting because it does not suffer from post-exposure shrinkage and can be manufactured at up to centimeter thickness. This allows for the creation of self-sustaining holographic optical elements (HOEs) with extremely selective angular and spectral diffraction profiles (i.e., with high selectivity). As a tradeoff, it has a low maximum refractive index modulation (Δn) when compared to thin-film materials (I've achieved slightly above 1e-4, which is among the highest in the literature). I've used this material to design wavelength division multiplexers (WDM) and demultiplexers (DeMUX) for telecommunications (~1550 nm) and monocular passive ranging (~760 nm). This, of course, requires extensive simulation and modelling of coupled waves travelling through arbitrarily modulated gratings. I also designed and constructed a fully automated writing and characterization setup with MatLab in order to improve repeatability and accuracy.<br><br>
-				
-				<strong>Current work:</strong><br>
-				The use of thick HOEs is a double-edged sword: it allows us to achieve very high spectral selectivity, at the cost of a very low angular bandwidth. I am currently working on improving the field of view (i.e., angular selectivity) of these devices. I recently tested the use of cylindrical HOEs with lensed writing beams, which yielded an improvement of nearly two orders of magnitude (from ~20 mDeg to ~1 Deg). Nonetheless, this is not sufficient for most applications, and so I am now working on a new set of PQ:PMMA samples that are molded as cylindrical lenses. The simulations show that we should be able to make simple spherical lenses, and then correct for spherical and chromatic abberations using holograms written into the lenses.<br><br>
-				
-				<strong>Context:</strong><br>
-				Analog holograms are formed when beams of light interfere inside a photosensitive medium. In a mechanic similar to that of old analog photographs, the light reacts with the material and creates a 3D recording. Because the recording was formed through an interference pattern, it will contain the amplitude and phase information of the beams that were used to create it, forming a grating. The exact properties of the grating can be tailored depending on the writing characteristics, allowing for custom input/output angles, diffraction efficiencies, peak wavelengths, etc. Furthermore, because of the high Bragg selectivity they possess, many holograms can be stacked at the same location, allowing for multiple gratings to occupy the same space. We can take advantage of this to create high density optical storage of images that can be accessed at ultra-high speeds; a technique I often employ in my correlator research. <br><br>
-				
-				Phenanthrenequinone (PQ) doped poly-methyl(methacrylate) (PMMA) is a holographic polymer that is synthesized as a liquid but cures into a solid, which allows for the fabrication of substrates of arbitrary shapes and sizes with a thickness up to centimeter scale. The PQ is a photosensitive dye that, when exposed to light, reacts with MMA and PMMA to form oligomers. When interfering two beams in this substrate, this reaction effectively modulates the refractive index of the polymer, thus forming the desired phase grating. I have manufactured substrates with Δn above 1e-4, which is among the highest recorded for this material.<br><br>
-				
-			</div>
-			<div class="button-container">
-				<button class="publications-button" onclick="window.location.href='photos.html#Holograms'">
-						Pictures and Figures
-				</button>
-			</div>
-        </div>
+  <!-- OPTICAL CORRELATORS -->
+  <div class="research-block" id="Correlators">
+    <div class="research-block-header">
+      <div class="research-num">01</div>
+      <h2>Optical Correlators</h2>
+    </div>
+    <div class="research-body">
+      <div style="margin-bottom:14px;">
+        <span class="tag">Fourier Optics</span>
+        <span class="tag">Target Recognition</span>
+        <span class="tag">SLM / DMD</span>
+        <span class="tag">C++ / VHDL</span>
+        <span class="tag">Machine Learning</span>
+      </div>
 
-        <!-- Placeholder content for Photonic Integrated Circuits Section -->
-        <div id="PIC" class="research-section">
-            <h2>Photonic Integrated Circuits</h2>
-            <div align="justify">
-				<strong>Summary:</strong><br>
-				This project is done in collaboration with the Center for Nanoscale Materials (CNM) at the Argonne National Laboratory (ANL).<br>
-				My research into the development of an optical system on a chip is performed primarily on an AlGaAs/GaAs substrate. The chip will incorporate lasers, detectors, waveguides, isolators, modulators, and other components. So far, I have demonstrated Y-junctions, passive waveguides, ring resonators, lasers, and detectors on our substrates. In addition to designing and fabricating these devices, I've had to design and construct custom characterization setups. I recently started researching acousto-optic ring isolators based on a thin-film LiNbO3-on-insulator substrate, as this would bypass the need for a magnetic garnet.<br><br>
-				
-				<strong>Current work:</strong><br>
-				I am currently focusing on the coupled-wave analysis needed for the design of acousto-optic ring isolators on LiNbO3, while simultaneously testing various grating coupler designs.
-				<br><br>
-				
-				<strong>Context:</strong><br>
-				My colleagues at the Lab. for Atomic and Photonic Technologies have been working on developing fast and slow light accelerometers / gyroscopes that use Rb transitions to generate the necessary phase conditions to get these states of light. They've demonstrated extremely large improvements in resolution over competing techniques, but their devices are large and unpractical. Similarly, other scientists that work with Rb atoms suffer from the same limitations that prihibit these technologies from advancing into practical use. Thus, it would be tremendously useful to develop on-chip alternatives to the discrete components they typically use. To this end, I've been researching the design and fabrication of active and passive optical components that operate at ~780 and ~792 nm, which are the most typical wavelengths for Rb interactions. We've selected AlGaAs for our susbtrate, as it can be tuned to operate over this range. This choice complicated the manufacturing steps for two primary reasions: 1) it requires Chlorine chemistries for dry etching, and 2) Aluminum oxidation is difficult to avoid. Despite this, I've managed to design and construct Fabry-Perot & DBR lasers, detectors, beam splitters, beam combiners, and ring resonators. Another large challenge has been the fact that our AlGaAs substrate has a quantum well for active operation, but this causes absorption when used for passive components. Thus, if we wish to combine active and passive components on a single chip quantum well disordering (QWD) is required. The use of an SrF4 mask prior to rapid thermal processing has allowed me to selectively perform QWD without drastically affecting non-disordered areas, but further development is still required in order to construct a full photonic integrated circuit.<br><br>
-			</div>
-			<div class="button-container">
-				<button class="publications-button" onclick="window.location.href='photos.html#PIC'">
-						Pictures and Figures
-				</button>
-			</div>
-        </div>
-    </section>
+      <p><strong>Note:</strong> The majority of my publications are on this topic due to the quick experimental turnaround. However, I have dedicated roughly equal time to all three topics on this page, which share the general themes of interferometry and coupled waves.</p>
 
-    <footer>© 2026 Julian Gamboa González</footer>
+      <div class="sub-heading">Summary</div>
+      <p>The <em>Hybrid Optoelectronic Correlator</em> (HOC) was proposed and demonstrated at LAPT. I was the first to show it is capable of producing shift, scale, and rotation invariant (SSRI) target recognition. The maximum theoretical operating speed is on the order of 5 µs, making it a viable input filter for more resource-intensive image processing systems. I've worked on both the optical and electronic segments to approach this speed limit. The current implementation runs at <strong>720 correlations per second</strong> using custom TI DMD spatial light modulators and high-speed cameras, all programmed in C++ with OpenCV. A previous prototype used a Xilinx FPGA with an ONSemi focal plane array.</p>
 
-    <script>
-        function openProject(url) {
-            window.location.href = url;
-        }
-    </script>
+      <div class="sub-heading">Recent Work</div>
+      <p>I proposed a new opto-electronic architecture: the <em>Balanced Joint Transform Correlator</em> (BJTC). This design merges techniques from the HOC and the traditional JTC, achieving SSRI recognition with half the optical complexity of the HOC and orders-of-magnitude higher SNR than a standard JTC. Operating at 720 fps, it is approximately an order of magnitude faster than the current fastest computational image recognition systems. I have also demonstrated a <em>Debiased JTC</em> that further enhances recognition performance in Optics Express (2025). Additionally, I am simulating the use of these correlators as machine learning accelerators — with very promising preliminary results.</p>
 
-<script>
-	function toggleMenu() {
-		var nav = document.getElementById('main-nav');
-		nav.classList.toggle('show');
-	}
-</script>
+      <div class="sub-heading">How it Works</div>
+      <p>The HOC uses optics to perform real-time 2D Fourier transforms of arbitrary images. Magnitudes are captured directly with focal plane arrays; phases are captured using off-axis auxiliary plane waves. These signals are processed electronically — added, subtracted, and multiplied pixel-by-pixel — and the result is sent to an SLM, which produces the 2D cross-correlation via a second Fourier transform. This architecture is inherently shift invariant. Scale and rotation invariance are achieved by incorporating the <em>Polar Mellin transform</em>, which produces unique, geometry-invariant image signatures.</p>
+    </div>
+    <div class="research-footer">
+      <a class="btn btn-gold" href="photos.html#Correlators">Pictures &amp; Figures</a>
+      <a class="btn btn-outline" href="publications.html">Related Publications</a>
+    </div>
+  </div>
+
+  <!-- PQ:PMMA HOLOGRAMS -->
+  <div class="research-block" id="Holograms">
+    <div class="research-block-header">
+      <div class="research-num">02</div>
+      <h2>PQ:PMMA Volume Holograms</h2>
+    </div>
+    <div class="research-body">
+      <div style="margin-bottom:14px;">
+        <span class="tag">Holographic Optical Elements</span>
+        <span class="tag">WDM / DeMUX</span>
+        <span class="tag">AR Displays</span>
+        <span class="tag">Coupled-Wave Theory</span>
+        <span class="tag">Material Fabrication</span>
+      </div>
+
+      <div class="sub-heading">Summary</div>
+      <p>My PQ:PMMA research has focused on fabrication, characterization, and applications of this unique holographic polymer. Unlike most holographic materials, it does not suffer from post-exposure shrinkage and can be manufactured at centimeter-scale thickness — enabling self-sustaining HOEs with extremely high angular and spectral selectivity (Bragg selectivity). I've achieved Δn slightly above 10⁻⁴, among the highest reported for this material. Applications include wavelength division multiplexers and demultiplexers for telecommunications (~1550 nm) and monocular passive ranging (~760 nm). I also designed and constructed a fully automated writing and characterization setup in MatLab to improve repeatability.</p>
+
+      <div class="sub-heading">Recent Work</div>
+      <p>Thick HOEs offer very high spectral selectivity but limited angular bandwidth — a fundamental tradeoff. I have been working to broaden the angular field of view. Testing cylindrical HOEs with lensed writing beams yielded a ~100× improvement in angular bandwidth (from ~20 mDeg to ~1 Deg). I am now developing PQ:PMMA samples molded as cylindrical lenses, with simulations indicating spherical lenses are achievable and that spherical and chromatic aberrations can be corrected holographically within the substrate itself.</p>
+
+      <div class="sub-heading">Background</div>
+      <p>Analog holograms form when coherent beams interfere inside a photosensitive medium, recording both amplitude and phase in a 3D grating. The grating properties — input/output angles, diffraction efficiency, peak wavelength — are tailored by the writing geometry. Because of high Bragg selectivity, multiple holograms can be spatially multiplexed at the same location; I exploit this for high-density optical image storage in my correlator work.</p>
+      <p>PQ:PMMA is synthesized as a liquid and cures to a solid, enabling arbitrary substrate shapes at millimeter-to-centimeter thickness. Upon exposure, phenanthrenequinone (PQ) reacts with MMA and PMMA to form oligomers, modulating the local refractive index to create the desired phase grating.</p>
+    </div>
+    <div class="research-footer">
+      <a class="btn btn-gold" href="photos.html#Holograms">Pictures &amp; Figures</a>
+      <a class="btn btn-outline" href="publications.html">Related Publications</a>
+    </div>
+  </div>
+
+  <!-- PHOTONIC INTEGRATED CIRCUITS -->
+  <div class="research-block" id="PIC">
+    <div class="research-block-header">
+      <div class="research-num">03</div>
+      <h2>Photonic Integrated Circuits</h2>
+    </div>
+    <div class="research-body">
+      <div style="margin-bottom:14px;">
+        <span class="tag">AlGaAs/GaAs</span>
+        <span class="tag">LiNbO₃</span>
+        <span class="tag">Nanofabrication</span>
+        <span class="tag">Argonne National Lab</span>
+        <span class="tag">Rb Gyroscope</span>
+      </div>
+
+      <div class="sub-heading">Summary</div>
+      <p>This project is done in collaboration with the Center for Nanoscale Materials (CNM) at Argonne National Laboratory. My research targets an optical system-on-chip in AlGaAs/GaAs, incorporating lasers, detectors, waveguides, isolators, and modulators. I have demonstrated Y-junctions, passive waveguides, ring resonators, Fabry-Pérot and DBR lasers, and detectors on our substrates, along with the custom characterization setups needed to evaluate them. I recently expanded into acousto-optic ring isolators on thin-film LiNbO₃-on-insulator, bypassing the need for magnetic garnet isolators.</p>
+
+      <div class="sub-heading">Recent Work</div>
+      <p>Current efforts focus on coupled-wave analysis for LiNbO₃ acousto-optic ring isolator design, while simultaneously evaluating grating coupler designs for efficient chip-to-fiber coupling. A key challenge is combining active and passive components on a single AlGaAs chip: the quantum well structure needed for lasing causes parasitic absorption in passive waveguide regions. I have developed a selective quantum well disordering (QWD) process using an SrF₄ mask prior to rapid thermal annealing, allowing targeted disordering without significantly affecting neighboring active regions.</p>
+
+      <div class="sub-heading">Context</div>
+      <p>Colleagues at LAPT have demonstrated fast- and slow-light accelerometers/gyroscopes using Rb atomic transitions, achieving dramatically improved resolution over competing techniques. However, these systems remain bulky and impractical. On-chip integration at the Rb transition wavelengths (~780 nm and ~792 nm) would be transformative. AlGaAs was chosen for its tunability across this range, despite the additional process challenges it introduces (chlorine-based dry etching, aluminum oxidation susceptibility). Three Argonne CNM facility proposals have been accepted to support this work.</p>
+    </div>
+    <div class="research-footer">
+      <a class="btn btn-gold" href="photos.html#PIC">Pictures &amp; Figures</a>
+      <a class="btn btn-outline" href="publications.html">Related Publications</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 Julian Gamboa González &nbsp;·&nbsp;
+  <a href="http://www.JulianGamboa.com/">JulianGamboa.com</a>
+</footer>
 
 </body>
 </html>
