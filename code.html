@@ -1,136 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research - Julian Gamboa González</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample Codes — Julian Gamboa González</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#1a2b3c;--navy2:#243447;--gold:#c9a84c;--gold-lt:#e2c97e;--cream:#f5f0e8;--text:#1e1e1e;--muted:#5a6270;--line:rgba(201,168,76,.25);--radius:4px;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:var(--text);background:var(--cream);overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:center;background:var(--navy);height:52px;border-bottom:1px solid rgba(201,168,76,.2);}
+    nav a{color:#b8c5d4;text-decoration:none;font-size:13px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;padding:0 22px;height:100%;display:flex;align-items:center;border-right:1px solid rgba(255,255,255,.06);transition:color .2s,background .2s;}
+    nav a:first-of-type{border-left:1px solid rgba(255,255,255,.06);}
+    nav a:hover,nav a.active{color:var(--gold);background:rgba(201,168,76,.07);}
+    .menu-icon{display:none;color:var(--gold);font-size:22px;cursor:pointer;padding:0 20px;height:100%;align-items:center;}
+    .page-header{margin-top:52px;background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 60%,#1e3a52 100%);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;}
+    .page-header::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(201,168,76,.03) 80px,rgba(201,168,76,.03) 81px),repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(201,168,76,.03) 80px,rgba(201,168,76,.03) 81px);pointer-events:none;}
+    .page-header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;color:#fff;position:relative;z-index:1;}
+    .page-header h1 span{color:var(--gold);}
+    .page-header p{color:#8ca3bb;font-size:.95rem;margin-top:8px;position:relative;z-index:1;}
+    main{max-width:860px;margin:0 auto;padding:48px 24px 80px;}
+    .section{margin-bottom:52px;}
+    .section-heading{display:flex;align-items:center;gap:16px;margin-bottom:24px;}
+    .section-heading h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--navy);white-space:nowrap;}
+    .section-heading .lang-badge{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--gold);border:1px solid var(--gold);padding:2px 10px;border-radius:20px;}
+    .section-heading::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gold) 0%,transparent 100%);opacity:.4;}
+    .intro-text{background:#fff;border-radius:var(--radius);padding:20px 24px;box-shadow:0 1px 6px rgba(0,0,0,.06);font-size:.95rem;color:#2e3a46;line-height:1.8;margin-bottom:36px;border-left:3px solid var(--gold);}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;font-size:13px;font-weight:500;letter-spacing:.05em;text-decoration:none;border-radius:var(--radius);transition:all .22s;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;}
+    .btn-gold{background:var(--gold);color:var(--navy);}
+    .btn-gold:hover{background:var(--gold-lt);transform:translateY(-1px);}
+    footer{background:var(--navy);color:#5a7a9a;text-align:center;padding:28px 20px;font-size:.82rem;letter-spacing:.04em;}
+    footer a{color:var(--gold);text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+
+    /* Code cards */
+    .code-card{background:#fff;border-radius:var(--radius);box-shadow:0 1px 8px rgba(0,0,0,.07);margin-bottom:16px;overflow:hidden;border-left:3px solid transparent;transition:border-color .2s,box-shadow .2s;}
+    .code-card:hover{border-left-color:var(--gold);box-shadow:0 4px 16px rgba(0,0,0,.1);}
+    .code-card-inner{padding:20px 24px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;}
+    .code-title{font-weight:500;color:var(--navy);font-size:.97rem;margin-bottom:6px;}
+    .code-desc{font-size:.88rem;color:#3a4656;line-height:1.7;}
+    .code-btn{white-space:nowrap;background:var(--navy);color:var(--gold-lt);font-size:12px;padding:8px 16px;border-radius:var(--radius);text-decoration:none;font-weight:500;font-family:'DM Mono',monospace;letter-spacing:.05em;transition:background .2s;display:flex;align-items:center;gap:6px;border:none;cursor:pointer;}
+    .code-btn:hover{background:var(--navy2);}
+    .code-btn::before{content:'{ }';font-size:10px;opacity:.6;}
+
+    @media(max-width:640px){
+      nav a{padding:0 12px;font-size:12px;display:none;}
+      nav.show a{display:flex;}
+      .menu-icon{display:flex;}
+      nav{flex-wrap:wrap;height:auto;min-height:52px;padding:12px 0;}
+      nav.show{flex-direction:column;}
+      .code-card-inner{grid-template-columns:1fr;gap:14px;}
+    }
+  </style>
 </head>
 <body>
 
-	<nav id="main-nav"> <!-- Navigation bar =============================-->
-		<div class="menu-icon" onclick="toggleMenu()">☰</div>
-        <a href="index.html">Home</a>
-        <a href="research.html">Research</a>
-        <a href="publications.html">Publications</a>
-        <a href="code.html">Codes</a>
-        <a href="contact.html">Contact</a>
-        <a href="photos.html">Photos</a>
-    </nav>
+<nav id="main-nav">
+  <div class="menu-icon" onclick="this.parentElement.classList.toggle('show')">☰</div>
+  <a href="index.html">Home</a>
+  <a href="research.html">Research</a>
+  <a href="publications.html">Publications</a>
+  <a href="code.html" class="active">Codes</a>
+  <a href="contact.html">Contact</a>
+  <a href="photos.html">Photos</a>
+</nav>
 
-    <header>
-        <h1><font color="#d3c8a6">Sample Codes</font></h1>
-    </header>
+<div class="page-header">
+  <h1>Sample <span>Codes</span></h1>
+  <p>MatLab · C++ · VHDL — selected works from research</p>
+</div>
 
-    <section>
-		 <div align="justify">I am most experienced with MatLab, C++, and VHDL, and have used these languages for the grand majority of my research. Here, I provide a few codes in each language to give you an idea of how I go about solving a problem. These codes are mostly unmodified from their original files, and any existing comments were already there for my own reference.<br>
-		 </div>
-			
-        <!-- MatLab -->
-        <div id="MatLab" class="research-section">
-            <h2>MatLab</h2>
-            <div align="justify">
-		 
-				<div class="button-container">
-					<button class="publications-button" onclick="window.open('https://github.com/julian1179/InstrumentControl', '_blank')">
-							Instrument Control Github Repo
-					</button>
-				</div>
-				I have a repo on Github with MatLab codes for controlling the most common instruments in our lab that didn't have pre-existing libraries available. My colleagues and I use these codes extensively when automating our experiments.<br><br>
-		 
-				<div class="button-container">
-					<button class="publications-button" onclick="window.open('https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/Finite_Difference_Fourier_Series_Grating_Sim.m', '_blank')">
-							Coupled Beam Power Transfer
-					</button>
-				</div>
-				This simulation code allows you to input the writing parameters for a series of multiplexed gratings. It first computes the equivalent k-vectors at the reading wavelengths, and then uses a finite-difference technique to determine the power transfer from the input beam to the coupled beams as they propagate through the medium.<br><br>
-		 
-				<div class="button-container">
-					<button class="publications-button" onclick="window.open('https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/HMD_Writing_AutoPhi.m', '_blank')">
-							Automated HOE Writing
-					</button>
-				</div>
-				This automation code is perhaps one of the most used programs I've written. It connects to the automated HOE writing system I made for my PQ:PMMA research and automatically exposes all of the programmed gratings. The system is programmed via a CSV that lists the relevant parameters (writing angles, exposure times, etc). The code is modular and can be used for single-grating or multiplexed-grating exposures. It relies heavily on codes found in my "Instrument Control" github repo.<br><br>
-		 
-				<div class="button-container">
-					<button class="publications-button" onclick="window.open('https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/Measure_Angular_Selectivity_AutoPhi.m', '_blank')">
-							HOE Angular Selectivity Measurement
-					</button>
-				</div>
-				This automated characterization code is used to scan an HOE over a range of reading angles and measure the diffraction efficiency at each one. Thanks to this code, I'm able to take measurements over an arbitrarily large range with up to 0.0005° resolution. For a simple HOE disk with a dozen or so writing locations, this automated characterization can take as little as an hour (as opposed to several days if done by hand).<br><br>
+<main>
 
-			
+  <div class="intro-text">
+    I am most experienced with <strong>MatLab</strong>, <strong>C++</strong>, and <strong>VHDL</strong>, which account for the grand majority of my research code. Below are representative samples in each language, selected to illustrate how I approach different classes of problems — from high-level automation and simulation down to low-level hardware design. These codes are mostly unmodified from their original research files; any comments were written for my own reference at the time.
+  </div>
 
+  <!-- MATLAB -->
+  <div class="section" id="MatLab">
+    <div class="section-heading">
+      <h2>MatLab</h2>
+      <span class="lang-badge">MATLAB</span>
+    </div>
+
+    <div class="code-card">
+      <div class="code-card-inner">
+        <div>
+          <div class="code-title">Instrument Control GitHub Repo</div>
+          <div class="code-desc">A repository of MatLab drivers for controlling common lab instruments that lacked pre-existing libraries. My colleagues and I rely on these extensively when automating experiments — covering signal generators, cameras, rotation stages, power meters, and more.</div>
         </div>
-		
-        <!-- C++ -->
-        <div id="cpp" class="research-section">
-            <h2>C++</h2>
-            <div align="justify">
-		 
-				<div class="button-container">
-					<button class="publications-button" onclick="window.open('https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/parallel_PMT.cpp', '_blank')">
-							High-Speed PMT via Parallel Computing
-					</button>
-				</div>
-				The polar Melin transform (PMT) is an important part of my optical correlator research, as it allows us to perform correlations in a shift, scale, and rotation invariant manner. Notably, the PMT can be computed as a log-polar coordinate transformation of the FT. This code uses CPU parallelization along with a pre-computing technique in order to perform the PMT at the highest speed ever recorded. To date, I've achieved speeds below 900 µs per conversion for full HD images (1920 x 1080 pixels). This code is what enables 720 fps operation of an opto-electronic correlator. This code took about a month to develop.<br><br>
-		 
-				<div class="button-container">
-					<button class="publications-button" onclick="window.open('https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/ft2pmt.cpp', '_blank')">
-							Convert from FT to PMT
-					</button>
-				</div>
-				This simple code is used to compute the PMT for simulation purposes when speed is not an issue. It performs the same task as the "high-speed" code above, albeit orders of magnitude slower. This is a good example of how performance efficiency is a tradeoff with coding efficiency. This code took about 20 minutes to write.<br><br>
+        <a class="code-btn" href="https://github.com/julian1179/InstrumentControl" target="_blank">View on GitHub</a>
+      </div>
+    </div>
 
+    <div class="code-card">
+      <div class="code-card-inner">
+        <div>
+          <div class="code-title">Coupled Beam Power Transfer Simulation</div>
+          <div class="code-desc">Input the writing parameters for a set of multiplexed gratings; the code computes the equivalent k-vectors at the reading wavelengths, then uses a finite-difference technique to track power transfer between the input and diffracted beams as they propagate through the medium. Essential for designing WDM holograms.</div>
         </div>
-		
-        <!-- VHDL -->
-        <div id="VHDL" class="research-section">
-            <h2>VHDL</h2>
-            <div align="justify">
-		 
-				<div class="button-container">
-					<button class="publications-button" onclick="window.open('https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/Im_PMT_top.vhd', '_blank')">
-							FPGA PMT Top Code
-					</button>
-				</div>
-				This is the top-level code for an FPGA-based FT to PMT converter. This particular example connects to a computer via UART (USB). The execution speed of an FPGA can be much faster than a computer for these kinds of tasks, but communicating the necessary information typically creates a bottleneck. I later switched to a PCIe connection for this reason.<br><br>
-		 
-				<div class="button-container">
-					<button class="publications-button" onclick="window.open('https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/VDMA_Read.vhd', '_blank')">
-							FPGA Direct Memory Access Reading
-					</button>
-				</div>
-				This code configures and communicates with a direct memory access (DMA) module that is configured as a separate device in the FPGA. The DMA connects to a computer via PCIe and gives it access to the FPGA's RAM. This module reads from RAM and sends the data to the DMA module to be transmitted to the computer, while ensuring proper formatting and timing. This code has a great example of how a state machine is implemented to comply with communication standards and timing.<br><br>
-		 
-				<div class="button-container">
-					<button class="publications-button" onclick="window.open('https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/VDMA_Write.vhdl', '_blank')">
-							FPGA Direct Memory Access Writing
-					</button>
-				</div>
-				This code is similar to the "reading" code above, albeit now the data is received from a camera module and subsequently stored in RAM. In this case, the camera has priority control over the data, and so the code must maintain proper synchronization with the "Start of Frame" and "End of Line" signals.<br><br>
+        <a class="code-btn" href="https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/Finite_Difference_Fourier_Series_Grating_Sim.m" target="_blank">View Code</a>
+      </div>
+    </div>
 
-			
-
+    <div class="code-card">
+      <div class="code-card-inner">
+        <div>
+          <div class="code-title">Automated HOE Writing</div>
+          <div class="code-desc">Arguably the most-used program I've written. Connects to the automated HOE writing system and executes all programmed grating exposures from a CSV of parameters (writing angles, exposure times, etc.). Modular for single or multiplexed exposures; relies on the Instrument Control repo above.</div>
         </div>
+        <a class="code-btn" href="https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/HMD_Writing_AutoPhi.m" target="_blank">View Code</a>
+      </div>
+    </div>
 
-        
-    </section>
+    <div class="code-card">
+      <div class="code-card-inner">
+        <div>
+          <div class="code-title">HOE Angular Selectivity Measurement</div>
+          <div class="code-desc">Scans an HOE across an arbitrary angular range and records diffraction efficiency at each angle with up to 0.0005° resolution. A full disk with ~12 writing locations can be characterized in under an hour — versus several days by hand.</div>
+        </div>
+        <a class="code-btn" href="https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/Measure_Angular_Selectivity_AutoPhi.m" target="_blank">View Code</a>
+      </div>
+    </div>
+  </div>
 
-    <footer>© 2026 Julian Gamboa González</footer>
+  <!-- C++ -->
+  <div class="section" id="cpp">
+    <div class="section-heading">
+      <h2>C++</h2>
+      <span class="lang-badge">C++</span>
+    </div>
 
-    <script>
-        function openProject(url) {
-            window.location.href = url;
-        }
-    </script>
+    <div class="code-card">
+      <div class="code-card-inner">
+        <div>
+          <div class="code-title">High-Speed Polar Mellin Transform via Parallel Computing</div>
+          <div class="code-desc">The PMT is computed as a log-polar coordinate transformation of the Fourier transform. This implementation uses CPU parallelization and a pre-computation strategy to achieve speeds below 900 µs per conversion for full-HD images (1920 × 1080 px) — the fastest on record. This is what enables 720 fps operation of the opto-electronic correlator. Development took approximately one month.</div>
+        </div>
+        <a class="code-btn" href="https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/parallel_PMT.cpp" target="_blank">View Code</a>
+      </div>
+    </div>
 
-<script>
-	function toggleMenu() {
-		var nav = document.getElementById('main-nav');
-		nav.classList.toggle('show');
-	}
-</script>
+    <div class="code-card">
+      <div class="code-card-inner">
+        <div>
+          <div class="code-title">FT to PMT Converter (Reference Implementation)</div>
+          <div class="code-desc">A simpler, unoptimized reference implementation of the same FT-to-PMT conversion, intended for simulation rather than real-time use. Orders of magnitude slower, but written in ~20 minutes. A good illustration of the performance-versus-development-time tradeoff in scientific computing.</div>
+        </div>
+        <a class="code-btn" href="https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/ft2pmt.cpp" target="_blank">View Code</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- VHDL -->
+  <div class="section" id="VHDL">
+    <div class="section-heading">
+      <h2>VHDL</h2>
+      <span class="lang-badge">VHDL</span>
+    </div>
+
+    <div class="code-card">
+      <div class="code-card-inner">
+        <div>
+          <div class="code-title">FPGA PMT — Top-Level Module</div>
+          <div class="code-desc">Top-level VHDL for an FPGA-based FT-to-PMT converter, communicating with a host computer via UART (USB). While FPGAs can be much faster than CPUs for this class of operations, UART bandwidth created a bottleneck — I later replaced it with a PCIe interface.</div>
+        </div>
+        <a class="code-btn" href="https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/Im_PMT_top.vhd" target="_blank">View Code</a>
+      </div>
+    </div>
+
+    <div class="code-card">
+      <div class="code-card-inner">
+        <div>
+          <div class="code-title">FPGA Direct Memory Access — Read Module</div>
+          <div class="code-desc">Configures and communicates with a PCIe-connected DMA module. Reads image data from the FPGA's RAM and transmits it to the host computer, enforcing correct data formatting and timing. Demonstrates how state machines are used to comply with memory and bus interface standards.</div>
+        </div>
+        <a class="code-btn" href="https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/VDMA_Read.vhd" target="_blank">View Code</a>
+      </div>
+    </div>
+
+    <div class="code-card">
+      <div class="code-card-inner">
+        <div>
+          <div class="code-title">FPGA Direct Memory Access — Write Module</div>
+          <div class="code-desc">Companion to the read module. Accepts incoming frames from a camera, stores them in FPGA RAM via DMA, and maintains synchronization with the camera's Start-of-Frame and End-of-Line control signals — which have priority over the data bus.</div>
+        </div>
+        <a class="code-btn" href="https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/VDMA_Write.vhdl" target="_blank">View Code</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 Julian Gamboa González &nbsp;·&nbsp;
+  <a href="http://www.JulianGamboa.com/">JulianGamboa.com</a>
+</footer>
 
 </body>
 </html>
