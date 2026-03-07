@@ -41,6 +41,19 @@
     .stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--navy);line-height:1;}
     .stat-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--muted);margin-top:5px;text-transform:uppercase;}
 
+    /* Filter bar */
+    .filter-bar{background:#fff;border-radius:var(--radius);box-shadow:0 1px 8px rgba(0,0,0,.07);padding:20px 24px;margin-bottom:28px;}
+    .filter-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px;}
+    .filter-row:last-child{margin-bottom:0;}
+    .filter-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);min-width:60px;}
+    .filter-btn{font-family:'DM Sans',sans-serif;font-size:12px;padding:5px 14px;border-radius:20px;border:1px solid rgba(26,43,60,.2);background:transparent;color:var(--muted);cursor:pointer;transition:all .15s;}
+    .filter-btn:hover{border-color:var(--gold);color:var(--gold);}
+    .filter-btn.active{background:var(--navy);color:var(--gold);border-color:var(--navy);}
+    .filter-select{font-family:'DM Sans',sans-serif;font-size:12px;padding:5px 10px;border-radius:20px;border:1px solid rgba(26,43,60,.2);background:transparent;color:#3a4656;cursor:pointer;outline:none;}
+    .filter-search{flex:1;min-width:160px;font-family:'DM Sans',sans-serif;font-size:13px;padding:6px 14px;border-radius:20px;border:1px solid rgba(26,43,60,.2);background:#fff;color:var(--text);outline:none;}
+    .filter-search:focus{border-color:var(--gold);}
+    .result-count{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.06em;padding:4px 0;}
+    
     /* Pub list */
     .pub-list{display:flex;flex-direction:column;gap:10px;}
     .pub-item{background:#fff;border-radius:var(--radius);padding:16px 20px 16px 24px;box-shadow:0 1px 5px rgba(0,0,0,.05);font-size:.9rem;color:#2e3a46;line-height:1.7;border-left:3px solid transparent;transition:border-color .2s,box-shadow .2s;position:relative;}
@@ -364,4 +377,5 @@
 
 </body>
 </html>
+
 
