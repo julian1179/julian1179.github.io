@@ -13,7 +13,7 @@
     html{scroll-behavior:smooth;}
     body{font-family:'DM Sans',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:var(--text);background:var(--cream);overflow-x:hidden;}
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:center;background:var(--navy);height:52px;border-bottom:1px solid rgba(201,168,76,.2);}
-    nav a{color:#b8c5d4;text-decoration:none;font-size:13px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;padding:0 22px;height:100%;display:flex;align-items:center;border-right:1px solid rgba(255,255,255,.06);transition:color .2s,background .2s;}
+    nav a{color:#b8c5d4;text-decoration:none;font-size:13px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;padding:0 18px;height:100%;display:flex;align-items:center;border-right:1px solid rgba(255,255,255,.06);transition:color .2s,background .2s;}
     nav a:first-of-type{border-left:1px solid rgba(255,255,255,.06);}
     nav a:hover,nav a.active{color:var(--gold);background:rgba(201,168,76,.07);}
     .menu-icon{display:none;color:var(--gold);font-size:22px;cursor:pointer;padding:0 20px;height:100%;align-items:center;}
@@ -53,11 +53,12 @@
     .filter-search{flex:1;min-width:160px;font-family:'DM Sans',sans-serif;font-size:13px;padding:6px 14px;border-radius:20px;border:1px solid rgba(26,43,60,.2);background:#fff;color:var(--text);outline:none;}
     .filter-search:focus{border-color:var(--gold);}
     .result-count{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.06em;padding:4px 0;}
-    
+
     /* Pub list */
     .pub-list{display:flex;flex-direction:column;gap:10px;}
-    .pub-item{background:#fff;border-radius:var(--radius);padding:16px 20px 16px 24px;box-shadow:0 1px 5px rgba(0,0,0,.05);font-size:.9rem;color:#2e3a46;line-height:1.7;border-left:3px solid transparent;transition:border-color .2s,box-shadow .2s;position:relative;}
+    .pub-item{background:#fff;border-radius:var(--radius);padding:16px 20px 16px 24px;box-shadow:0 1px 5px rgba(0,0,0,.05);font-size:.9rem;color:#2e3a46;line-height:1.7;border-left:3px solid transparent;transition:border-color .2s,box-shadow .2s,opacity .25s,max-height .25s;position:relative;}
     .pub-item:hover{border-left-color:var(--gold);box-shadow:0 3px 12px rgba(0,0,0,.1);}
+    .pub-item.hidden{display:none;}
     .pub-item a{color:var(--navy);font-weight:500;text-decoration:none;}
     .pub-item a:hover{color:var(--gold);text-decoration:underline;}
     .pub-meta{display:flex;align-items:center;gap:10px;margin-top:6px;flex-wrap:wrap;}
@@ -65,14 +66,19 @@
     .badge-highlight{display:inline-block;font-size:.7rem;font-weight:500;padding:1px 8px;border-radius:20px;background:rgba(201,168,76,.18);color:#7a5c00;border:1px solid rgba(201,168,76,.35);}
     .pub-num{position:absolute;top:16px;right:16px;font-family:'DM Mono',monospace;font-size:10px;color:rgba(0,0,0,.15);}
 
+
+
+    .no-results{text-align:center;padding:40px;color:var(--muted);font-size:.95rem;display:none;}
+
     @media(max-width:640px){
-      nav a{padding:0 12px;font-size:12px;display:none;}
+      nav a{padding:0 10px;font-size:12px;display:none;}
       nav.show a{display:flex;}
       .menu-icon{display:flex;}
       nav{flex-wrap:wrap;height:auto;min-height:52px;padding:12px 0;}
       nav.show{flex-direction:column;}
       .stats-bar{flex-direction:column;}
       .stat{border-right:none;border-bottom:1px solid rgba(0,0,0,.06);}
+      .filter-bar{padding:14px 16px;}
     }
   </style>
 </head>
@@ -374,8 +380,93 @@
   © 2026 Julian Gamboa González &nbsp;·&nbsp;
   <a href="http://www.JulianGamboa.com/">JulianGamboa.com</a>
 </footer>
+<script>
+  // ─── Filter state ───────────────────────────────────────────────────
+  let activeType = 'all';
+  let activeTopic = 'all';
+  let activeYear = 'all';
+  let searchQuery = '';
 
+  const allItems = [...document.querySelectorAll('.pub-item')];
+  const resultCount = document.getElementById('result-count');
+  const noResults = document.getElementById('no-results');
+
+  function applyFilters() {
+    let visible = 0;
+    allItems.forEach(item => {
+      const type = item.dataset.type;
+      const year = item.dataset.year;
+      const topics = (item.dataset.topic || '').split(' ');
+      const text = item.textContent.toLowerCase();
+
+      const matchType   = activeType === 'all' || type === activeType;
+      const matchYear   = activeYear === 'all' || year === activeYear;
+      const matchTopic  = activeTopic === 'all' || topics.includes(activeTopic);
+      const matchSearch = searchQuery === '' || text.includes(searchQuery.toLowerCase());
+
+      if (matchType && matchYear && matchTopic && matchSearch) {
+        item.classList.remove('hidden');
+        visible++;
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+
+    resultCount.textContent = `Showing ${visible} of 27 papers`;
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+
+    // Show/hide section headings based on visible items
+    const journalVisible = allItems.filter(i => i.dataset.type === 'journal' && !i.classList.contains('hidden')).length;
+    const confVisible    = allItems.filter(i => i.dataset.type === 'conference' && !i.classList.contains('hidden')).length;
+    document.getElementById('journal-section').style.display = journalVisible === 0 ? 'none' : '';
+    document.getElementById('conference-section').style.display = confVisible === 0 ? 'none' : '';
+  }
+
+  // Type filter buttons
+  document.querySelectorAll('[data-type]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeType = btn.dataset.type;
+      applyFilters();
+    });
+  });
+
+  // Topic filter buttons
+  document.querySelectorAll('[data-topic]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-topic]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeTopic = btn.dataset.topic;
+      applyFilters();
+    });
+  });
+
+  // Year select
+  document.getElementById('year-filter').addEventListener('change', e => {
+    activeYear = e.target.value;
+    applyFilters();
+  });
+
+  // Search
+  document.getElementById('search-input').addEventListener('input', e => {
+    searchQuery = e.target.value;
+    applyFilters();
+  });
+
+  // Mobile nav
+  document.querySelectorAll('nav a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('main-nav').classList.remove('show'));
+  });
+
+  // Initialize count
+  applyFilters();
+
+  // Stats (Citations, h-index) are from Google Scholar.
+  // Update manually or run update_publications.py to refresh from Semantic Scholar.
+</script>
 </body>
 </html>
+
 
 
