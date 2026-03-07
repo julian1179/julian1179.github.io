@@ -106,12 +106,48 @@
     <a class="btn btn-gold" href="https://scholar.google.com/citations?user=kn-VcE4AAAAJ&hl=en" target="_blank">Google Scholar →</a>
   </div>
 
-  <!-- JOURNAL PAPERS -->
-  <div class="section">
-    <div class="section-heading"><h2>Journal Articles</h2></div>
-    <div class="pub-list">
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="filter-row">
+      <span class="filter-label">Type</span>
+      <button class="filter-btn active" data-type="all">All</button>
+      <button class="filter-btn" data-type="journal">Journal</button>
+      <button class="filter-btn" data-type="conference">Conference</button>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">Year</span>
+      <select class="filter-select" id="year-filter">
+        <option value="all">All years</option>
+        <option value="2025">2025</option>
+        <option value="2024">2024</option>
+        <option value="2023">2023</option>
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+      </select>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">Topic</span>
+      <button class="filter-btn active" data-topic="all">All</button>
+      <button class="filter-btn" data-topic="hoc">HOC / BJTC</button>
+      <button class="filter-btn" data-topic="holograms">Holograms / WDM</button>
+      <button class="filter-btn" data-topic="sthc">STHC</button>
+      <button class="filter-btn" data-topic="neural">Neural Networks / CERN</button>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">Search</span>
+      <input class="filter-search" id="search-input" type="text" placeholder="Search by title, author, venue…">
+    </div>
+    <div class="result-count" id="result-count">Showing 27 of 27 papers</div>
+  </div>
 
-      <div class="pub-item">
+  <!-- JOURNAL PAPERS -->
+  <div class="section" id="journal-section">
+    <div class="section-heading"><h2>Journal Articles</h2></div>
+    <div class="pub-list" id="pub-list">
+
+      <div class="pub-item" data-type="journal" data-year="2025" data-topic="hoc">
         <div class="pub-num">J7</div>
         <strong>J. Gamboa</strong>, X. Shen, T. Hamidfar, S. A. Mitu, and S. M. Shahriar,
         "<a href="https://doi.org/10.1364/OE.563828" target="_blank">Debiased Opto-electronic Joint Transform Correlator for Enhanced Real-Time Pattern Recognition</a>,"
@@ -119,7 +155,7 @@
         <div class="pub-meta"><span class="pub-venue">Optics Express · 2025</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="journal" data-year="2025" data-topic="hoc">
         <div class="pub-num">J6</div>
         X. Shen*, <strong>J. Gamboa*</strong>, T. Hamidfar, S. A. Mitu, and S. M. Shahriar,
         "<a href="https://doi.org/10.1007/s40295-025-00524-4" target="_blank">Ultra-Fast Real-Time Target Recognition Using a Shift, Scale, and Rotation Invariant Hybrid Opto-Electronic Joint Transform Correlator</a>,"
@@ -127,7 +163,7 @@
         <div class="pub-meta"><span class="pub-venue">J. Astronautical Sciences · 2025</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="journal" data-year="2023" data-topic="hoc">
         <div class="pub-num">J5</div>
         <strong>J. Gamboa</strong>, T. Hamidfar, X. Shen, and S. M. Shahriar,
         "<a href="https://doi.org/10.1364/OE.484149" target="_blank">Elimination of optical phase sensitivity in a shift, scale, and rotation invariant hybrid opto-electronic correlator via off-axis operation</a>,"
@@ -135,7 +171,7 @@
         <div class="pub-meta"><span class="pub-venue">Optics Express · 2023</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="journal" data-year="2021" data-topic="holograms">
         <div class="pub-num">J4</div>
         <strong>J. Gamboa</strong>, T. Hamidfar, J. Vonckx, M. Fouda, and S. M. Shahriar,
         "<a href="https://doi.org/10.1364/AO.434503" target="_blank">Thick PQ:PMMA transmission holograms for free-space optical communication via wavelength-division multiplexing</a>,"
@@ -143,15 +179,15 @@
         <div class="pub-meta"><span class="pub-venue">Applied Optics · 2021</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="journal" data-year="2021" data-topic="hoc holograms">
         <div class="pub-num">J3</div>
         <strong>J. Gamboa</strong>, T. Hamidfar, and S. M. Shahriar,
-        "<a href="https://doi.org/10.1364/OE.444442" target="_blank">Integration of a PQ:PMMA holographic memory device into the hybrid opto-electronic correlator for shift, scale, and rotation invariant target recognition</a>,"
+        "<a href="https://doi.org/10.1364/OE.443554" target="_blank">Integration of a PQ:PMMA holographic memory device into the hybrid opto-electronic correlator for shift, scale, and rotation invariant target recognition</a>,"
         <em>Optics Express</em> 29(24), 40194–40204 (2021).
         <div class="pub-meta"><span class="pub-venue">Optics Express · 2021</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="journal" data-year="2021" data-topic="holograms">
         <div class="pub-num">J2</div>
         <strong>J. Gamboa</strong>, T. Hamidfar, J. Bonacum, and S. M. Shahriar,
         "<a href="https://doi.org/10.1364/OME.440384" target="_blank">Determination of the refractive index modulation of PQ:PMMA holographic phase gratings over a large spectral range through a two-level approximation of the electric susceptibility</a>,"
@@ -159,7 +195,7 @@
         <div class="pub-meta"><span class="pub-venue">Optical Materials Express · 2021</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="journal" data-year="2019" data-topic="hoc">
         <div class="pub-num">J1</div>
         <strong>J. Gamboa</strong>, M. Fouda, and S. M. Shahriar,
         "<a href="https://doi.org/10.1364/OE.27.016507" target="_blank">Demonstration of shift, scale, and rotation invariant target recognition using the hybrid opto-electronic correlator</a>,"
@@ -171,144 +207,144 @@
   </div>
 
   <!-- CONFERENCE PAPERS -->
-  <div class="section">
+  <div class="section" id="conference-section">
     <div class="section-heading"><h2>Conference Papers</h2></div>
-    <div class="pub-list">
+    <div class="pub-list" id="conf-list">
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2024" data-topic="hoc">
         <div class="pub-num">C20</div>
         <strong>J. Gamboa</strong>, T. Hamidfar, X. Shen, S. A. Mitu, S. M. Shahriar, "<em>Highly Enhanced Pattern Recognition with a Balanced Joint Transform Correlator</em>,"
         CLEO: Applications and Technology, AM4A.1 (2024).
         <div class="pub-meta"><span class="pub-venue">CLEO 2024</span><span class="badge-highlight">⭐ Highlighted Talk</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2024" data-topic="hoc">
         <div class="pub-num">C19</div>
         X. Shen, <strong>J. Gamboa</strong>, T. Hamidfar, S. Mitu, S. Shahriar, "<em>Ultra-Fast Real-Time Target Recognition Using a Shift, Scale, and Rotation Invariant Hybrid Opto-Electronic Joint Transform Correlator</em>,"
         Advanced Maui Optical and Space Surveillance Technologies Conference (2024).
         <div class="pub-meta"><span class="pub-venue">AMOS 2024</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2024" data-topic="sthc">
         <div class="pub-num">C18</div>
         X. Shen, <strong>J. Gamboa</strong>, T. Hamidfar, S. A. Mitu, S. M. Shahriar, "<em>Speed Invariant Opto-atomic Spatio-temporal Holographic Correlator for Automatic Event Recognition Using the Mellin Transform</em>,"
         CLEO: Science and Innovations, JTh2A.186 (2024).
         <div class="pub-meta"><span class="pub-venue">CLEO 2024</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2024" data-topic="sthc">
         <div class="pub-num">C17</div>
         X. Shen, <strong>J. Gamboa</strong>, T. Hamidfar, S. M. Shahriar, "<em>Investigation of frequency invariance in automated event recognition using resonant atomic media</em>,"
         Practical Holography XXXVIII: Displays, Materials, and Applications 12910, 92–98 (2024).
         <div class="pub-meta"><span class="pub-venue">SPIE PW 2024</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2024" data-topic="neural">
         <div class="pub-num">C16</div>
         A. Tiwari, <strong>J. Gamboa</strong>, T. Hamidfar, X. Shen, S. A. Mitu, S. M. Shahriar, "<em>Opto-electronic Balanced Joint Transform Correlator as a Convolution Stage for Neural Networks</em>,"
         Laser Science, JTu4A.55 (2024).
         <div class="pub-meta"><span class="pub-venue">FiO 2024</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2024" data-topic="holograms">
         <div class="pub-num">C15</div>
         T. Hamidfar, <strong>J. Gamboa</strong>, X. Shen, J. Bonacum, S. M. Shahriar, "<em>Expanding the field of view in PQ:PMMA volume holograms using a cylindrical substrate geometry</em>,"
         Practical Holography XXXVIII, PC1291006 (2024).
         <div class="pub-meta"><span class="pub-venue">SPIE PW 2024</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2023" data-topic="hoc">
         <div class="pub-num">C14</div>
         <strong>J. Gamboa</strong>, X. Shen, T. Hamidfar, S. M. Shahriar, "<em>High-speed Opto-electronic Pre-processing of Polar Mellin Transform for Shift, Scale and Rotation Invariant Image Recognition at Record-Breaking Speeds</em>,"
         Advanced Maui Optical and Space Surveillance Technologies Conference (2023).
         <div class="pub-meta"><span class="pub-venue">AMOS 2023</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2023" data-topic="neural">
         <div class="pub-num">C13</div>
         A. Tiwari, <strong>J. Gamboa</strong>, T. Hamidfar, X. Shen, S. M. Shahriar, "<em>Use of a Hybrid Opto-electronic Correlator for High-Speed Pattern Recognition in Fundamental Science Applications</em>,"
         Frontiers in Optics, JW4A.77 (2023).
         <div class="pub-meta"><span class="pub-venue">FiO 2023</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2023" data-topic="sthc">
         <div class="pub-num">C12</div>
         X. Shen, <strong>J. Gamboa</strong>, T. Hamidfar, S. M. Shahriar, "<em>Temporal Scale-Invariance for Automatic Event Recognition Using the Mellin Transform</em>,"
         Laser Science, JW4A.75 (2023).
         <div class="pub-meta"><span class="pub-venue">FiO 2023</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2023" data-topic="hoc">
         <div class="pub-num">C11</div>
         <strong>J. Gamboa</strong>, T. Hamidfar, X. Shen, S. M. Shahriar, "<em>Optical Phase Insensitive Off-axis Operation of the Hybrid Opto-electronic Correlator for Ultra-fast Shift, Scale, and Rotation Invariant Target Recognition</em>,"
         CLEO: Applications and Technology, ATu3K.1 (2023).
         <div class="pub-meta"><span class="pub-venue">CLEO 2023</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2023" data-topic="holograms">
         <div class="pub-num">C10</div>
         <strong>J. Gamboa</strong>, T. Hamidfar, X. Shen, J. Bonacum, S. M. Shahriar, "<em>Monocular passive ranging through a PQ:PMMA holographic wavelength division demultiplexer</em>,"
         Practical Holography XXXVII 12445, 150–155 (2023).
         <div class="pub-meta"><span class="pub-venue">SPIE PW 2023</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2023" data-topic="holograms">
         <div class="pub-num">C9</div>
         X. Shen, <strong>J. Gamboa</strong>, T. Hamidfar, J. Bonacum, S. M. Shahriar, "<em>Holographic diffraction of complex beams and gratings: theory and simulation</em>,"
         Practical Holography XXXVII 12445, 156–162 (2023).
         <div class="pub-meta"><span class="pub-venue">SPIE PW 2023</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2022" data-topic="holograms">
         <div class="pub-num">C8</div>
         T. Hamidfar, <strong>J. Gamboa</strong>, X. Shen, J. Vonckx, J. Bonacum, S. M. Shahriar, "<em>PQ:PMMA Holographic Optical Communication System for Free Space WDM and Demultiplexing at 1550 nm</em>,"
         Laser Science, JW5A.45 (2022).
         <div class="pub-meta"><span class="pub-venue">FiO 2022</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2022" data-topic="sthc">
         <div class="pub-num">C7</div>
         <strong>J. Gamboa</strong>, T. Hamidfar, X. Shen, S. M. Shahriar, "<em>Optical Correlation of 1D Time-Domain Signals Through a Spectrogram Time-Space Transform</em>,"
         Laser Science, JW5A.70 (2022).
         <div class="pub-meta"><span class="pub-venue">FiO 2022</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2022" data-topic="hoc">
         <div class="pub-num">C6</div>
         <strong>J. Gamboa</strong>, X. Shen, T. Hamidfar, S. M. Shahriar, "<em>Ultrafast image retrieval from a holographic memory disc for high-speed operation of a shift, scale, and rotation invariant target recognition system</em>,"
         Advanced Maui Optical and Space Surveillance Technologies Conference (2022).
         <div class="pub-meta"><span class="pub-venue">AMOS 2022</span><span class="badge-highlight">⭐ Best Presentation Award</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2022" data-topic="hoc">
         <div class="pub-num">C5</div>
         T. Hamidfar, <strong>J. Gamboa</strong>, X. Shen, S. M. Shahriar, "<em>High-Speed Automatic Target Recognition using the Hybrid Opto-electronic Correlator with Multi-channel Detection</em>,"
         CLEO: Applications and Technology, JW3A.4 (2022).
         <div class="pub-meta"><span class="pub-venue">CLEO 2022</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2022" data-topic="holograms">
         <div class="pub-num">C4</div>
         <strong>J. Gamboa</strong>, T. Hamidfar, J. Bonacum, S. M. Shahriar, "<em>Single-wavelength writing for free space WDM holograms at arbitrary wavelengths</em>,"
         Practical Holography XXXVI 12026, 46–50 (2022).
         <div class="pub-meta"><span class="pub-venue">SPIE PW 2022</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2021" data-topic="hoc holograms">
         <div class="pub-num">C3</div>
         <strong>J. Gamboa</strong>, T. Hamidfar, S. M. Shahriar, "<em>Shift Invariant Correlation using the Hybrid Optoelectronic Correlator with a PQ:PMMA Holographic Memory Device</em>,"
         Frontiers in Optics, FW5B.5 (2021).
         <div class="pub-meta"><span class="pub-venue">FiO 2021</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2020" data-topic="holograms">
         <div class="pub-num">C2</div>
         <strong>J. Gamboa</strong>, J. Vonckx, M. Fouda, S. M. Shahriar, "<em>PQ:PMMA Holographic Wavelength Division Multiplexing Filters For Use in Monocular Passive Ranging and Free Space Optical Communications</em>,"
         Frontiers in Optics + Laser Science (2020).
         <div class="pub-meta"><span class="pub-venue">FiO 2020</span></div>
       </div>
 
-      <div class="pub-item">
+      <div class="pub-item" data-type="conference" data-year="2019" data-topic="hoc">
         <div class="pub-num">C1</div>
         <strong>J. Gamboa</strong>, M. Fouda, S. M. Johnson, S. M. Shahriar, "<em>Demonstration of Shift, Scale, and Rotation Invariant Target Recognition Using Polar Mellin Transforms in a Hybrid Opto-Electronic Correlator</em>,"
         Advanced Maui Optical and Space Surveillance Technologies Conference (2019).
@@ -316,6 +352,7 @@
       </div>
 
     </div>
+    <div class="no-results" id="no-results">No papers match the current filters. Try adjusting your search.</div>
   </div>
 
 </main>
@@ -327,3 +364,4 @@
 
 </body>
 </html>
+
