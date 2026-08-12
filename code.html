@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sample Codes — Julian Gamboa González</title>
+  <meta name="description" content="Sample research codes by Julian Gamboa González. MatLab, C++, and VHDL for optics, holography, and FPGA systems.">
+  <title>Sample Codes | Julian Gamboa González</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
@@ -13,7 +14,7 @@
     html{scroll-behavior:smooth;}
     body{font-family:'DM Sans',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:var(--text);background:var(--cream);overflow-x:hidden;}
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:center;background:var(--navy);height:52px;border-bottom:1px solid rgba(201,168,76,.2);}
-    nav a{color:#b8c5d4;text-decoration:none;font-size:13px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;padding:0 22px;height:100%;display:flex;align-items:center;border-right:1px solid rgba(255,255,255,.06);transition:color .2s,background .2s;}
+    nav a{color:#b8c5d4;text-decoration:none;font-size:13px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;padding:0 18px;height:100%;display:flex;align-items:center;border-right:1px solid rgba(255,255,255,.06);transition:color .2s,background .2s;}
     nav a:first-of-type{border-left:1px solid rgba(255,255,255,.06);}
     nav a:hover,nav a.active{color:var(--gold);background:rgba(201,168,76,.07);}
     .menu-icon{display:none;color:var(--gold);font-size:22px;cursor:pointer;padding:0 20px;height:100%;align-items:center;}
@@ -36,7 +37,6 @@
     footer a{color:var(--gold);text-decoration:none;}
     footer a:hover{text-decoration:underline;}
 
-    /* Code cards */
     .code-card{background:#fff;border-radius:var(--radius);box-shadow:0 1px 8px rgba(0,0,0,.07);margin-bottom:16px;overflow:hidden;border-left:3px solid transparent;transition:border-color .2s,box-shadow .2s;}
     .code-card:hover{border-left-color:var(--gold);box-shadow:0 4px 16px rgba(0,0,0,.1);}
     .code-card-inner{padding:20px 24px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;}
@@ -47,7 +47,7 @@
     .code-btn::before{content:'{ }';font-size:10px;opacity:.6;}
 
     @media(max-width:640px){
-      nav a{padding:0 12px;font-size:12px;display:none;}
+      nav a{padding:0 10px;font-size:12px;display:none;}
       nav.show a{display:flex;}
       .menu-icon{display:flex;}
       nav{flex-wrap:wrap;height:auto;min-height:52px;padding:12px 0;}
@@ -70,13 +70,13 @@
 
 <div class="page-header">
   <h1>Sample <span>Codes</span></h1>
-  <p>MatLab · C++ · VHDL — selected works from research</p>
+  <p>MatLab · C++ · VHDL · selected works from research</p>
 </div>
 
 <main>
 
   <div class="intro-text">
-    I am most experienced with <strong>MatLab</strong>, <strong>C++</strong>, and <strong>VHDL</strong>, which account for the grand majority of my research code. Below are representative samples in each language, selected to illustrate how I approach different classes of problems — from high-level automation and simulation down to low-level hardware design. These codes are mostly unmodified from their original research files; any comments were written for my own reference at the time.
+    I am most experienced with <strong>MatLab</strong>, <strong>C++</strong>, and <strong>VHDL</strong>, which account for the grand majority of my research code. I am also proficient in <strong>Python</strong> and <strong>Julia</strong>. Below are representative samples of my MatLab, C++, and VHDL work, selected to illustrate how I approach different classes of problems, from high-level automation and simulation down to low-level hardware design. These codes are mostly unmodified from their original research files; any comments were written for my own reference at the time.
   </div>
 
   <!-- MATLAB -->
@@ -90,7 +90,7 @@
       <div class="code-card-inner">
         <div>
           <div class="code-title">Instrument Control GitHub Repo</div>
-          <div class="code-desc">A repository of MatLab drivers for controlling common lab instruments that lacked pre-existing libraries. My colleagues and I rely on these extensively when automating experiments — covering signal generators, cameras, rotation stages, power meters, and more.</div>
+          <div class="code-desc">A repository of MatLab drivers for controlling common lab instruments that lacked pre-existing libraries. My colleagues and I rely on these extensively when automating experiments, covering signal generators, cameras, rotation stages, power meters, and more.</div>
         </div>
         <a class="code-btn" href="https://github.com/julian1179/InstrumentControl" target="_blank">View on GitHub</a>
       </div>
@@ -120,7 +120,7 @@
       <div class="code-card-inner">
         <div>
           <div class="code-title">HOE Angular Selectivity Measurement</div>
-          <div class="code-desc">Scans an HOE across an arbitrary angular range and records diffraction efficiency at each angle with up to 0.0005° resolution. A full disk with ~12 writing locations can be characterized in under an hour — versus several days by hand.</div>
+          <div class="code-desc">Scans an HOE across an arbitrary angular range and records diffraction efficiency at each angle with up to 0.0005° resolution. A full disk with ~12 writing locations can be characterized in under an hour, versus several days by hand. Used for both flat and cylindrical substrates.</div>
         </div>
         <a class="code-btn" href="https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/Measure_Angular_Selectivity_AutoPhi.m" target="_blank">View Code</a>
       </div>
@@ -138,7 +138,7 @@
       <div class="code-card-inner">
         <div>
           <div class="code-title">High-Speed Polar Mellin Transform via Parallel Computing</div>
-          <div class="code-desc">The PMT is computed as a log-polar coordinate transformation of the Fourier transform. This implementation uses CPU parallelization and a pre-computation strategy to achieve speeds below 900 µs per conversion for full-HD images (1920 × 1080 px) — the fastest on record. This is what enables 720 fps operation of the opto-electronic correlator. Development took approximately one month.</div>
+          <div class="code-desc">The PMT is computed as a log-polar coordinate transformation of the Fourier transform. This implementation uses CPU parallelization and a pre-computation strategy to achieve speeds below 900 µs per conversion for full-HD images (1920 × 1080 px), the fastest on record. This is what enables 720 fps operation of the opto-electronic correlator. Development took approximately one month; the Python reference implementation below took ~20 minutes.</div>
         </div>
         <a class="code-btn" href="https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/parallel_PMT.cpp" target="_blank">View Code</a>
       </div>
@@ -148,7 +148,7 @@
       <div class="code-card-inner">
         <div>
           <div class="code-title">FT to PMT Converter (Reference Implementation)</div>
-          <div class="code-desc">A simpler, unoptimized reference implementation of the same FT-to-PMT conversion, intended for simulation rather than real-time use. Orders of magnitude slower, but written in ~20 minutes. A good illustration of the performance-versus-development-time tradeoff in scientific computing.</div>
+          <div class="code-desc">A simpler, unoptimized reference implementation of the same FT-to-PMT conversion, intended for simulation rather than real-time use. Orders of magnitude slower, but written in ~20 minutes. A good illustration of the performance-versus-development-time tradeoff in scientific computing. A Python equivalent is even faster to prototype and equally useful for offline analysis.</div>
         </div>
         <a class="code-btn" href="https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/ft2pmt.cpp" target="_blank">View Code</a>
       </div>
@@ -165,8 +165,8 @@
     <div class="code-card">
       <div class="code-card-inner">
         <div>
-          <div class="code-title">FPGA PMT — Top-Level Module</div>
-          <div class="code-desc">Top-level VHDL for an FPGA-based FT-to-PMT converter, communicating with a host computer via UART (USB). While FPGAs can be much faster than CPUs for this class of operations, UART bandwidth created a bottleneck — I later replaced it with a PCIe interface.</div>
+          <div class="code-title">FPGA PMT: Top-Level Module</div>
+          <div class="code-desc">Top-level VHDL for an FPGA-based FT-to-PMT converter, communicating with a host computer via UART (USB). While FPGAs can be much faster than CPUs for this class of operations, UART bandwidth created a bottleneck, so I later replaced it with a PCIe interface. Implemented on a Xilinx Ultrascale+ VCU118 dev-board.</div>
         </div>
         <a class="code-btn" href="https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/Im_PMT_top.vhd" target="_blank">View Code</a>
       </div>
@@ -175,7 +175,7 @@
     <div class="code-card">
       <div class="code-card-inner">
         <div>
-          <div class="code-title">FPGA Direct Memory Access — Read Module</div>
+          <div class="code-title">FPGA Direct Memory Access: Read Module</div>
           <div class="code-desc">Configures and communicates with a PCIe-connected DMA module. Reads image data from the FPGA's RAM and transmits it to the host computer, enforcing correct data formatting and timing. Demonstrates how state machines are used to comply with memory and bus interface standards.</div>
         </div>
         <a class="code-btn" href="https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/VDMA_Read.vhd" target="_blank">View Code</a>
@@ -185,8 +185,8 @@
     <div class="code-card">
       <div class="code-card-inner">
         <div>
-          <div class="code-title">FPGA Direct Memory Access — Write Module</div>
-          <div class="code-desc">Companion to the read module. Accepts incoming frames from a camera, stores them in FPGA RAM via DMA, and maintains synchronization with the camera's Start-of-Frame and End-of-Line control signals — which have priority over the data bus.</div>
+          <div class="code-title">FPGA Direct Memory Access: Write Module</div>
+          <div class="code-desc">Companion to the read module. Accepts incoming frames from a camera, stores them in FPGA RAM via DMA, and maintains synchronization with the camera's Start-of-Frame and End-of-Line control signals, which have priority over the data bus.</div>
         </div>
         <a class="code-btn" href="https://github.com/julian1179/julian1179.github.io/blob/main/Sample%20Codes/VDMA_Write.vhdl" target="_blank">View Code</a>
       </div>
@@ -200,5 +200,10 @@
   <a href="http://www.JulianGamboa.com/">JulianGamboa.com</a>
 </footer>
 
+<script>
+  document.querySelectorAll('nav a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('main-nav').classList.remove('show'));
+  });
+</script>
 </body>
 </html>
