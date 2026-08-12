@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — Julian Gamboa González</title>
+  <meta name="description" content="Contact Julian Gamboa González, Optical Research Scientist at Swave Photonics. PhD in Electrical Engineering from Northwestern University.">
+  <title>Contact | Julian Gamboa González</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
@@ -13,7 +14,7 @@
     html{scroll-behavior:smooth;}
     body{font-family:'DM Sans',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:var(--text);background:var(--cream);overflow-x:hidden;}
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:center;background:var(--navy);height:52px;border-bottom:1px solid rgba(201,168,76,.2);}
-    nav a{color:#b8c5d4;text-decoration:none;font-size:13px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;padding:0 22px;height:100%;display:flex;align-items:center;border-right:1px solid rgba(255,255,255,.06);transition:color .2s,background .2s;}
+    nav a{color:#b8c5d4;text-decoration:none;font-size:13px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;padding:0 18px;height:100%;display:flex;align-items:center;border-right:1px solid rgba(255,255,255,.06);transition:color .2s,background .2s;}
     nav a:first-of-type{border-left:1px solid rgba(255,255,255,.06);}
     nav a:hover,nav a.active{color:var(--gold);background:rgba(201,168,76,.07);}
     .menu-icon{display:none;color:var(--gold);font-size:22px;cursor:pointer;padding:0 20px;height:100%;align-items:center;}
@@ -30,7 +31,6 @@
     footer a{color:var(--gold);text-decoration:none;}
     footer a:hover{text-decoration:underline;}
 
-    /* Contact-specific */
     .contact-card{background:#fff;border-radius:var(--radius);box-shadow:0 1px 8px rgba(0,0,0,.07);overflow:hidden;margin-bottom:16px;border-left:3px solid var(--gold);display:flex;align-items:center;gap:0;}
     .contact-icon{width:54px;min-width:54px;display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,.08);font-size:1.3rem;padding:20px 0;align-self:stretch;}
     .contact-body{padding:16px 20px;flex:1;}
@@ -46,7 +46,7 @@
     .profile-btn-sub{font-size:.78rem;color:#7a9ab8;}
 
     @media(max-width:640px){
-      nav a{padding:0 12px;font-size:12px;display:none;}
+      nav a{padding:0 10px;font-size:12px;display:none;}
       nav.show a{display:flex;}
       .menu-icon{display:flex;}
       nav{flex-wrap:wrap;height:auto;min-height:52px;padding:12px 0;}
@@ -94,10 +94,10 @@
   <div style="margin-top:44px;">
     <div class="section-heading"><h2>Professional Profiles</h2></div>
     <div class="profiles-grid">
-      <a class="profile-btn" href="https://scholar.google.com/citations?user=kn-VcE4AAAAJ&hl=en" target="_blank">
+      <a class="profile-btn" href="https://scholar.google.com/citations?user=9isJLCUAAAAJ&hl=en" target="_blank">
         <span class="profile-btn-label">Academic</span>
         <span class="profile-btn-name">Google Scholar</span>
-        <span class="profile-btn-sub">156 citations · h-index 7</span>
+        <span class="profile-btn-sub">173 citations · h-index 7</span>
       </a>
       <a class="profile-btn" href="https://www.linkedin.com/in/julian-gamboa-gonzalez/" target="_blank">
         <span class="profile-btn-label">Professional</span>
@@ -124,5 +124,10 @@
   <a href="http://www.JulianGamboa.com/">JulianGamboa.com</a>
 </footer>
 
+<script>
+  document.querySelectorAll('nav a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('main-nav').classList.remove('show'));
+  });
+</script>
 </body>
 </html>
