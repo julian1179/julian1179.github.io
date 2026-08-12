@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Research — Julian Gamboa González</title>
+  <meta name="description" content="Julian Gamboa González. Research in optical correlators (HOC/BJTC), PQ:PMMA volume holograms, photonic integrated circuits, and holographic displays at Swave Photonics and Meta Reality Labs.">
+  <title>Research | Julian Gamboa González</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
@@ -13,7 +14,7 @@
     html{scroll-behavior:smooth;}
     body{font-family:'DM Sans',sans-serif;font-weight:300;font-size:16px;line-height:1.7;color:var(--text);background:var(--cream);overflow-x:hidden;}
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:center;background:var(--navy);height:52px;border-bottom:1px solid rgba(201,168,76,.2);}
-    nav a{color:#b8c5d4;text-decoration:none;font-size:13px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;padding:0 22px;height:100%;display:flex;align-items:center;border-right:1px solid rgba(255,255,255,.06);transition:color .2s,background .2s;}
+    nav a{color:#b8c5d4;text-decoration:none;font-size:13px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;padding:0 18px;height:100%;display:flex;align-items:center;border-right:1px solid rgba(255,255,255,.06);transition:color .2s,background .2s;}
     nav a:first-of-type{border-left:1px solid rgba(255,255,255,.06);}
     nav a:hover,nav a.active{color:var(--gold);background:rgba(201,168,76,.07);}
     .menu-icon{display:none;color:var(--gold);font-size:22px;cursor:pointer;padding:0 20px;height:100%;align-items:center;}
@@ -36,7 +37,7 @@
     footer a{color:var(--gold);text-decoration:none;}
     footer a:hover{text-decoration:underline;}
 
-    /* Research-specific */
+    /* Research blocks */
     .research-block{background:#fff;border-radius:var(--radius);box-shadow:0 1px 8px rgba(0,0,0,.07);overflow:hidden;margin-bottom:32px;}
     .research-block-header{background:linear-gradient(90deg,var(--navy) 0%,var(--navy2) 100%);padding:24px 32px;display:flex;align-items:center;gap:18px;}
     .research-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:.12em;opacity:.7;}
@@ -48,8 +49,18 @@
     .sub-heading{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:20px 0 8px;}
     .research-footer{padding:0 32px 24px;display:flex;gap:12px;flex-wrap:wrap;}
 
+    /* Sub-sections within a research block */
+    .sub-block{background:rgba(201,168,76,.04);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:16px 20px;margin:16px 0;}
+    .sub-block-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--navy);font-weight:600;margin-bottom:6px;}
+    .sub-block p{font-size:.9rem;color:#3a4656;line-height:1.75;margin-bottom:0;}
+
+    /* Stat pills */
+    .stat-pills{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 16px;}
+    .stat-pill{background:var(--navy);color:#b8c5d4;font-family:'DM Mono',monospace;font-size:.78rem;padding:4px 12px;border-radius:20px;}
+    .stat-pill strong{color:var(--gold);}
+
     @media(max-width:640px){
-      nav a{padding:0 12px;font-size:12px;display:none;}
+      nav a{padding:0 10px;font-size:12px;display:none;}
       nav.show a{display:flex;}
       .menu-icon{display:flex;}
       nav{flex-wrap:wrap;height:auto;min-height:52px;padding:12px 0;}
@@ -72,7 +83,7 @@
 
 <div class="page-header">
   <h1>Research <span>Areas</span></h1>
-  <p>Three interconnected topics rooted in interferometry and coupled-wave theory</p>
+  <p>Four interconnected topics rooted in interferometry, coupled-wave theory, and photonic engineering</p>
 </div>
 
 <main>
@@ -81,7 +92,7 @@
   <div class="research-block" id="Correlators">
     <div class="research-block-header">
       <div class="research-num">01</div>
-      <h2>Optical Correlators</h2>
+      <h2>Optical Correlators &amp; Pattern Recognition</h2>
     </div>
     <div class="research-body">
       <div style="margin-bottom:14px;">
@@ -90,18 +101,38 @@
         <span class="tag">SLM / DMD</span>
         <span class="tag">C++ / VHDL</span>
         <span class="tag">Machine Learning</span>
+        <span class="tag">SSRI</span>
       </div>
 
-      <p><strong>Note:</strong> The majority of my publications are on this topic due to the quick experimental turnaround. However, I have dedicated roughly equal time to all three topics on this page, which share the general themes of interferometry and coupled waves.</p>
+      <div class="stat-pills">
+        <div class="stat-pill"><strong>720</strong> correlations/sec</div>
+        <div class="stat-pill"><strong>~2 ms</strong> per Full HD SSRI correlation (OJTC)</div>
+        <div class="stat-pill"><strong>100%</strong> recognition rate (off-axis HOC)</div>
+        <div class="stat-pill"><strong>8.4×</strong> experimental SNR improvement (BJTC)</div>
+      </div>
 
-      <div class="sub-heading">Summary</div>
-      <p>The <em>Hybrid Optoelectronic Correlator</em> (HOC) was proposed and demonstrated at LAPT. I was the first to show it is capable of producing shift, scale, and rotation invariant (SSRI) target recognition. The maximum theoretical operating speed is on the order of 5 µs, making it a viable input filter for more resource-intensive image processing systems. I've worked on both the optical and electronic segments to approach this speed limit. The current implementation runs at <strong>720 correlations per second</strong> using custom TI DMD spatial light modulators and high-speed cameras, all programmed in C++ with OpenCV. A previous prototype used a Xilinx FPGA with an ONSemi focal plane array.</p>
+      <div class="sub-heading">Hybrid Opto-Electronic Correlator (HOC)</div>
+      <p>The <em>Hybrid Optoelectronic Correlator</em> (HOC) was proposed and demonstrated at LAPT. I was the first to show it is capable of producing shift, scale, and rotation invariant (SSRI) target recognition. The maximum theoretical operating speed is on the order of 5 µs, making it a viable input filter for more resource-intensive image processing systems.</p>
+      <p>The HOC uses optics to perform real-time 2D Fourier transforms of arbitrary images. Magnitudes are captured directly with focal plane arrays; phases are captured using off-axis auxiliary plane waves. These signals are processed electronically (added, subtracted, and multiplied pixel-by-pixel) and the result is sent to a DMD SLM, which produces the 2D cross-correlation via a second Fourier transform. This architecture is inherently shift invariant. Scale and rotation invariance are achieved via the <em>Polar Mellin Transform</em> (PMT), computed in C++ in &lt;900 µs for Full HD images, the fastest on record.</p>
 
-      <div class="sub-heading">Recent Work</div>
-      <p>I proposed a new opto-electronic architecture: the <em>Balanced Joint Transform Correlator</em> (BJTC). This design merges techniques from the HOC and the traditional JTC, achieving SSRI recognition with half the optical complexity of the HOC and orders-of-magnitude higher SNR than a standard JTC. Operating at 720 fps, it is approximately an order of magnitude faster than the current fastest computational image recognition systems. I have also demonstrated a <em>Debiased JTC</em> that further enhances recognition performance in Optics Express (2025). Additionally, I am simulating the use of these correlators as machine learning accelerators — with very promising preliminary results.</p>
+      <div class="sub-heading">Balanced Joint Transform Correlator (BJTC)</div>
+      <p>I proposed the <em>Balanced Joint Transform Correlator</em> (BJTC), which merges techniques from the HOC and the traditional JTC. This design achieves SSRI recognition with half the optical complexity of the HOC and orders-of-magnitude higher SNR than a standard JTC. The BJTC uses phase information (HOC) to eliminate the self-correlation bias terms: <strong>BJPS = JPS − |R|² − |Q|²</strong>. Simulated improvement: ~800×; experimental: 8.4× peak enhancement. Operating at 720 fps, it is approximately an order of magnitude faster than current state-of-the-art computational systems.</p>
 
-      <div class="sub-heading">How it Works</div>
-      <p>The HOC uses optics to perform real-time 2D Fourier transforms of arbitrary images. Magnitudes are captured directly with focal plane arrays; phases are captured using off-axis auxiliary plane waves. These signals are processed electronically — added, subtracted, and multiplied pixel-by-pixel — and the result is sent to an SLM, which produces the 2D cross-correlation via a second Fourier transform. This architecture is inherently shift invariant. Scale and rotation invariance are achieved by incorporating the <em>Polar Mellin transform</em>, which produces unique, geometry-invariant image signatures.</p>
+      <div class="sub-block">
+        <div class="sub-block-title">Debiased OJTC (DOJTC): Published OE 2025</div>
+        <p>The Debiased Joint Transform Correlator eliminates self-intensity terms digitally without requiring the full HOC optical path. The debiasing equation DJPS = JPS − |R_FT|² − |Q_FT|² achieves ~8.4× experimental peak enhancement with a simpler optical setup. Demonstrated at ~720 fps (2 ms per correlation for Full HD), the fastest SSRI JTC on record. Hardware: Thorlabs Zelux FPAs, TI DLP471te SLMs. Published in <em>Optics Express</em> 33(13), 2025.</p>
+      </div>
+
+      <div class="sub-heading">Spatio-Temporal Holographic Correlator (STHC)</div>
+      <p>A novel correlator architecture that applies the Mellin transform along the temporal axis (rather than the spatial axes), enabling <em>speed-invariant event recognition</em> from 1D time-domain signals. The approach uses a spectrogram (STFT) to lift time-domain signals into 2D space, then applies the HOC pipeline, producing recognition invariant to playback speed. Demonstrated on audio signals (speaker-invariant "Northwestern" vs. "Northwestern University") and AER-encoded video. An atomic medium photon-echo implementation supports ~18 unique nonlinear signal components for enhanced discrimination.</p>
+
+      <div class="sub-block">
+        <div class="sub-block-title">BJTC as CNN Convolution Accelerator: FiO 2024</div>
+        <p>Demonstrated use of the BJTC as an optical convolution stage for neural networks, applied to CERN LHC particle event classification (top-quark pair vs. W+jet events). Achieved 79% accuracy with 0.74/0.84 recall, with the optical stage running orders of magnitude faster than equivalent GPU convolutions. Lead author: Aarushi Tiwari; co-authors include Shamima Akter Mitu and Julian Gamboa.</p>
+      </div>
+
+      <div class="sub-heading">Historical Hardware</div>
+      <p>The HOC has evolved from early prototypes using a <strong>Thorlabs DCC1545M</strong> camera (1280×1024, 30 fps) and a <strong>TI DLP3000</strong> SLM (684×608, operating at 854×480, ~6.5 mm physical DMD) with a Verdi V2 laser, through to the current implementation using <strong>XIMEA LUX19HS</strong> cameras (2200 fps, 4 units) and <strong>TI DLP471TE</strong> SLMs (720 fps, 8-bit), driven by custom C++ with OpenCV on a multi-core CPU. An earlier FPGA prototype used a Xilinx VCU118 with ONSemi focal plane arrays and 4 VHDL modules (UART Rx, RAM, ROM for LPT mapping, UART Tx).</p>
     </div>
     <div class="research-footer">
       <a class="btn btn-gold" href="photos.html#Correlators">Pictures &amp; Figures</a>
@@ -124,15 +155,36 @@
         <span class="tag">Material Fabrication</span>
       </div>
 
-      <div class="sub-heading">Summary</div>
-      <p>My PQ:PMMA research has focused on fabrication, characterization, and applications of this unique holographic polymer. Unlike most holographic materials, it does not suffer from post-exposure shrinkage and can be manufactured at centimeter-scale thickness — enabling self-sustaining HOEs with extremely high angular and spectral selectivity (Bragg selectivity). I've achieved Δn slightly above 10⁻⁴, among the highest reported for this material. Applications include wavelength division multiplexers and demultiplexers for telecommunications (~1550 nm) and monocular passive ranging (~760 nm). I also designed and constructed a fully automated writing and characterization setup in MatLab to improve repeatability.</p>
+      <div class="stat-pills">
+        <div class="stat-pill">Δn <strong>&gt;10⁻⁴</strong> (Type II)</div>
+        <div class="stat-pill"><strong>1,320</strong> image HMD capacity</div>
+        <div class="stat-pill"><strong>6-channel</strong> WDM at 1550 nm</div>
+        <div class="stat-pill"><strong>525 km</strong> FSOC range @ 1 W</div>
+      </div>
 
-      <div class="sub-heading">Recent Work</div>
-      <p>Thick HOEs offer very high spectral selectivity but limited angular bandwidth — a fundamental tradeoff. I have been working to broaden the angular field of view. Testing cylindrical HOEs with lensed writing beams yielded a ~100× improvement in angular bandwidth (from ~20 mDeg to ~1 Deg). I am now developing PQ:PMMA samples molded as cylindrical lenses, with simulations indicating spherical lenses are achievable and that spherical and chromatic aberrations can be corrected holographically within the substrate itself.</p>
+      <div class="sub-heading">Fabrication &amp; Material Science</div>
+      <p>My PQ:PMMA research has focused on fabrication, characterization, and applications of this holographic polymer. Unlike most holographic materials, it does not suffer from post-exposure shrinkage and can be manufactured at centimeter-scale thickness, enabling self-sustaining HOEs with extremely high angular and spectral selectivity (Bragg selectivity). I've achieved Δn slightly above 10⁻⁴, among the highest reported for this material. My two-level model of electric susceptibility (R² = 0.9956 at 780 nm; 0.9903 at 1300 nm; 0.9876 at 1550 nm) enables accurate Δn(λ) prediction from a single UV-Vis measurement.</p>
 
-      <div class="sub-heading">Background</div>
-      <p>Analog holograms form when coherent beams interfere inside a photosensitive medium, recording both amplitude and phase in a 3D grating. The grating properties — input/output angles, diffraction efficiency, peak wavelength — are tailored by the writing geometry. Because of high Bragg selectivity, multiple holograms can be spatially multiplexed at the same location; I exploit this for high-density optical image storage in my correlator work.</p>
-      <p>PQ:PMMA is synthesized as a liquid and cures to a solid, enabling arbitrary substrate shapes at millimeter-to-centimeter thickness. Upon exposure, phenanthrenequinone (PQ) reacts with MMA and PMMA to form oligomers, modulating the local refractive index to create the desired phase grating.</p>
+      <div class="sub-heading">Wavelength Division Multiplexing (WDM)</div>
+      <p>Demonstrated WDM/DeMUX systems at <strong>780 nm</strong> (3-channel: 760/780/795 nm) and <strong>1550 nm</strong> (3-channel and 6-channel: 1548.1–1560.27 nm, 2.8 mm aperture, 6 multiplexed messages). The 6-channel 1550 nm system transmitted six independent messages in parallel, all received without error. Theoretical free-space range: <strong>525 km at 1 W</strong> / 117 km at 50 mW.</p>
+
+      <div class="sub-heading">Holographic Memory Device (HMD)</div>
+      <p>A 2 mm thick PQ:PMMA disk can store <strong>1,320 images</strong> (12 angular positions × 110 multiplexed images) using the automated writing arm (DMD-based, two rotation modes). Disk capacity analysis: 250,000 images / 576 GB in a 10 cm disk; angular selectivity 14.7 mDeg for 2 mm substrate. Stored targets spanned several classes of aircraft, spacecraft, and maritime vessels, along with standard resolution charts. Readout power: 2.8 W at 5 µs / 0.467 W at 30 µs.</p>
+
+      <div class="sub-heading">Lens &amp; Cylindrical HOEs</div>
+
+      <div class="sub-block">
+        <div class="sub-block-title">Cylindrical HOEs: 360° FOV, 100× Bandwidth Improvement</div>
+        <p>Testing cylindrical HOEs with lensed writing beams yielded a ~100× improvement in angular bandwidth (from ~20 mDeg to ~0.5° FWHM). The cylindrical substrate geometry (80×85×70 mm, 440 gratings, 4.09° spacing, 360° FOV) enables panoramic detection. Bragg wavelength uniformity maintained across all angular positions. SPIE PW 2024 (Hamidfar lead).</p>
+      </div>
+
+      <div class="sub-block">
+        <div class="sub-block-title">Lens-Shaped HOEs</div>
+        <p>Demonstrated curved-substrate HOEs with 52.5% diffraction efficiency and 74 mDeg angular selectivity (intermediate lens), and 3.49% efficiency / 1.26° angular selectivity (flat substrate equivalent ~7 mDeg). PQ:PMMA molded as cylindrical lenses, with simulations showing spherical lenses are achievable and that spherical and chromatic aberrations can be corrected holographically.</p>
+      </div>
+
+      <div class="sub-heading">Monocular Passive Ranging (MPR)</div>
+      <p>Designed a compact passive ranging system using a 3-band HOE as a wavelength filter for the oxygen A-band (762/750/780 nm). The HOE simultaneously measures three spectral channels, so T_turb cancels in the intensity ratio I(762)/I(750), an advantage impossible with sequential filter switching. Demonstrated at 100 m and 200 m in a hallway (51.6/43.3/41.8% DE).</p>
     </div>
     <div class="research-footer">
       <a class="btn btn-gold" href="photos.html#Holograms">Pictures &amp; Figures</a>
@@ -152,21 +204,69 @@
         <span class="tag">LiNbO₃</span>
         <span class="tag">Nanofabrication</span>
         <span class="tag">Argonne National Lab</span>
-        <span class="tag">Rb Gyroscope</span>
+        <span class="tag">Cleanroom Processing</span>
       </div>
 
-      <div class="sub-heading">Summary</div>
-      <p>This project is done in collaboration with the Center for Nanoscale Materials (CNM) at Argonne National Laboratory. My research targets an optical system-on-chip in AlGaAs/GaAs, incorporating lasers, detectors, waveguides, isolators, and modulators. I have demonstrated Y-junctions, passive waveguides, ring resonators, Fabry-Pérot and DBR lasers, and detectors on our substrates, along with the custom characterization setups needed to evaluate them. I recently expanded into acousto-optic ring isolators on thin-film LiNbO₃-on-insulator, bypassing the need for magnetic garnet isolators.</p>
+      <div class="stat-pills">
+        <div class="stat-pill"><strong>4</strong> ANL CNM proposals accepted</div>
+        <div class="stat-pill">First on-chip lasing in the group</div>
+      </div>
 
-      <div class="sub-heading">Recent Work</div>
-      <p>Current efforts focus on coupled-wave analysis for LiNbO₃ acousto-optic ring isolator design, while simultaneously evaluating grating coupler designs for efficient chip-to-fiber coupling. A key challenge is combining active and passive components on a single AlGaAs chip: the quantum well structure needed for lasing causes parasitic absorption in passive waveguide regions. I have developed a selective quantum well disordering (QWD) process using an SrF₄ mask prior to rapid thermal annealing, allowing targeted disordering without significantly affecting neighboring active regions.</p>
+      <div class="sub-heading">Project Context &amp; Goal</div>
+      <p>This work was carried out in collaboration with the Center for Nanoscale Materials (CNM) at Argonne National Laboratory. The long-term goal is an on-chip fast-light interferometric optical gyroscope and accelerometer operating near rubidium transition wavelengths, building on free-space fast- and slow-light sensors previously demonstrated at LAPT. AlGaAs was chosen for its tunability across this range. <strong>Four Argonne CNM facility proposals were accepted</strong> to support this work.</p>
 
-      <div class="sub-heading">Context</div>
-      <p>Colleagues at LAPT have demonstrated fast- and slow-light accelerometers/gyroscopes using Rb atomic transitions, achieving dramatically improved resolution over competing techniques. However, these systems remain bulky and impractical. On-chip integration at the Rb transition wavelengths (~780 nm and ~792 nm) would be transformative. AlGaAs was chosen for its tunability across this range, despite the additional process challenges it introduces (chlorine-based dry etching, aluminum oxidation susceptibility). Three Argonne CNM facility proposals have been accepted to support this work.</p>
+      <div class="sub-heading">Milestones</div>
+      <p>My fabrication runs produced the first on-chip lasing devices demonstrated in the group, using distributed Bragg reflector laser designs operating in the near infrared. Other demonstrated components include Y-junctions, passive waveguides, ring resonators, Fabry-Pérot lasers, and integrated detectors.</p>
+
+      <div class="sub-heading">Fabrication Process</div>
+      <p>I developed the group's end-to-end fabrication process from scratch, spanning e-beam resist preparation, e-beam lithography at the CNM, hard mask deposition, dry etching, p- and n-metal deposition with thermal annealing, and final lapping, cleaving, mounting, and wire-bonding.</p>
+
+      <div class="sub-heading">LiNbO₃ Acousto-Optic Isolators</div>
+      <p>I also explored acousto-optic ring isolators on thin-film lithium niobate on insulator, an approach that avoids the need for magnetic garnet isolators, alongside an initial look at magneto-optic isolator materials. This strand of the work centred on coupled-wave analysis for ring isolator design and grating coupler efficiency.</p>
+
+      <div class="sub-heading">Quantum Well Intermixing (QWI)</div>
+      <p>I developed a selective QWI process based on a masked rapid thermal anneal, achieving targeted disordering without significantly affecting neighbouring active regions. QWI allows active (lasing) and passive (low-absorption) waveguide regions to be combined on a single chip, which is essential for the target gyroscope architecture.</p>
+    </div>
+      <p style="color:var(--muted);font-size:.88rem;font-style:italic;">Note: This work is described at a high level, as the results have not yet been published.</p>
     </div>
     <div class="research-footer">
       <a class="btn btn-gold" href="photos.html#PIC">Pictures &amp; Figures</a>
       <a class="btn btn-outline" href="publications.html">Related Publications</a>
+    </div>
+  </div>
+
+  <!-- META / AR HOLOGRAPHY -->
+  <div class="research-block" id="Meta">
+    <div class="research-block-header">
+      <div class="research-num">04</div>
+      <h2>Holographic Displays: Swave Photonics &amp; Meta Reality Labs</h2>
+    </div>
+    <div class="research-body">
+      <div style="margin-bottom:14px;">
+        <span class="tag">AR Displays</span>
+        <span class="tag">Wave Optics</span>
+        <span class="tag">HOE Design</span>
+        <span class="tag">Zemax OpticStudio</span>
+        <span class="tag">SolidWorks</span>
+        <span class="tag">MatLab Automation</span>
+      </div>
+
+      <div class="sub-heading">Overview</div>
+      <p>At <strong>Swave Photonics</strong> (Apr 2026 to present) I am developing a reference design for a holographic optical projector for display glasses. The work combines computer generated holography with photopolymer HOE fabrication and experimental automation, and I presented prototype work at SID Display Week 2026.</p>
+
+      <p>Previously, at Meta's Reality Labs Research (OPALS Team), I focus on the design, simulation, and fabrication of holographic optical elements (HOEs) with complex optical functions for next-generation augmented reality displays. My work builds on the volume holography expertise developed during my PhD, extending it to wearable form factors and production-oriented manufacturing requirements.</p>
+
+      <div class="sub-heading">Key Contributions</div>
+      <p>I constructed a unique, fully automated holographic exposure and metrology system combining optical, mechanical, and software control, enabling repeatable, high-precision HOE fabrication at scale. I developed Zemax OpticStudio, MatLab, and SolidWorks models of complex diffractive systems, and produced white papers driving the down-selection of three product architectures.</p>
+      <p>Improved key performance indicators by up to <strong>10×</strong> through wave-optical design optimization. Produced proof-of-concept wearable prototypes during my internship (Jul–Oct 2024) that were tech-transferred into a direct product candidate, the only such transfer from this department to date.</p>
+
+      <div class="sub-heading">Tools &amp; Methods</div>
+      <p>Zemax OpticStudio (wave-optic and ray-optic propagation), SolidWorks (mechanical design and tolerance analysis), MatLab (automated data acquisition, analysis, and simulation), coupled-wave theory (Kogelnik's formalism and full-wave extensions), and direct holographic exposure with controlled environmental conditions.</p>
+
+      <p style="color:var(--muted);font-size:.88rem;font-style:italic;">Note: Only publicly available information is described here. Confidential technical details regarding Swave Photonics and Meta products are not disclosed.</p>
+    </div>
+    <div class="research-footer">
+      <a class="btn btn-outline" href="contact.html">Contact for Collaboration</a>
     </div>
   </div>
 
@@ -177,5 +277,10 @@
   <a href="http://www.JulianGamboa.com/">JulianGamboa.com</a>
 </footer>
 
+<script>
+  document.querySelectorAll('nav a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('main-nav').classList.remove('show'));
+  });
+</script>
 </body>
 </html>
