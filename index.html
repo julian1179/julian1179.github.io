@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Julian Gamboa González — Optical Scientist</title>
+  <meta name="description" content="Julian Gamboa González. Optical Research Scientist at Swave Photonics. PhD in Electrical Engineering (Photonics) from Northwestern University. Expert in holography, optical correlators, and photonic integrated circuits.">
+  <title>Julian Gamboa González | Optical Scientist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
@@ -55,7 +56,7 @@
       font-weight: 400;
       letter-spacing: .08em;
       text-transform: uppercase;
-      padding: 0 22px;
+      padding: 0 18px;
       height: 100%;
       display: flex;
       align-items: center;
@@ -75,6 +76,28 @@
       align-items: center;
     }
 
+    /* ─── SCROLL TO TOP ────────────────────────────────────── */
+    #scroll-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 40px;
+      height: 40px;
+      background: var(--navy);
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      z-index: 99;
+      transition: background .2s, transform .2s;
+    }
+    #scroll-top:hover { background: var(--navy2); transform: translateY(-2px); }
+    #scroll-top.visible { display: flex; }
+
     /* ─── HERO ─────────────────────────────────────────────── */
     .hero {
       min-height: 100vh;
@@ -85,29 +108,15 @@
       position: relative;
       overflow: hidden;
     }
-    /* subtle interference pattern overlay */
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background-image:
-        repeating-linear-gradient(
-          90deg,
-          transparent,
-          transparent 80px,
-          rgba(201,168,76,.03) 80px,
-          rgba(201,168,76,.03) 81px
-        ),
-        repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 80px,
-          rgba(201,168,76,.03) 80px,
-          rgba(201,168,76,.03) 81px
-        );
+        repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(201,168,76,.03) 80px, rgba(201,168,76,.03) 81px),
+        repeating-linear-gradient(0deg,  transparent, transparent 80px, rgba(201,168,76,.03) 80px, rgba(201,168,76,.03) 81px);
       pointer-events: none;
     }
-    /* decorative arc top-right */
     .hero::after {
       content: '';
       position: absolute;
@@ -186,10 +195,7 @@
       cursor: pointer;
       border: none;
     }
-    .btn-gold {
-      background: var(--gold);
-      color: var(--navy);
-    }
+    .btn-gold { background: var(--gold); color: var(--navy); }
     .btn-gold:hover { background: var(--gold-lt); transform: translateY(-1px); }
     .btn-outline {
       background: transparent;
@@ -211,9 +217,7 @@
     }
 
     /* ─── SECTION HEADINGS ─────────────────────────────────── */
-    .section {
-      padding: 72px 0 0;
-    }
+    .section { padding: 72px 0 0; }
     .section-heading {
       display: flex;
       align-items: center;
@@ -236,13 +240,55 @@
     }
 
     /* ─── ABOUT ────────────────────────────────────────────── */
-    .about-text {
-      font-size: 1.03rem;
-      color: #2e3a46;
-      line-height: 1.8;
-      max-width: 720px;
-    }
+    .about-text { font-size: 1.03rem; color: #2e3a46; line-height: 1.8; max-width: 720px; }
     .about-text + .about-text { margin-top: 16px; }
+
+    /* ─── CAREER TIMELINE ──────────────────────────────────── */
+    .timeline-wrap {
+      position: relative;
+      padding: 8px 0 8px 32px;
+    }
+    .timeline-wrap::before {
+      content: '';
+      position: absolute;
+      left: 9px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--gold) 0%, rgba(201,168,76,.15) 100%);
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 28px;
+      opacity: 0;
+      transform: translateX(-12px);
+      transition: opacity .5s, transform .5s;
+    }
+    .tl-item.visible { opacity: 1; transform: translateX(0); }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -27px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--cream);
+      box-shadow: 0 0 0 2px var(--gold);
+    }
+    .tl-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: .1em;
+      margin-bottom: 3px;
+    }
+    .tl-title {
+      font-weight: 500;
+      color: var(--navy);
+      font-size: .97rem;
+    }
+    .tl-sub { font-size: .85rem; color: var(--muted); line-height: 1.5; }
 
     /* ─── EDUCATION ────────────────────────────────────────── */
     .edu-list { display: flex; flex-direction: column; gap: 20px; }
@@ -264,22 +310,9 @@
       padding-top: 3px;
       line-height: 1.6;
     }
-    .edu-degree {
-      font-weight: 500;
-      color: var(--navy);
-      font-size: .98rem;
-    }
-    .edu-inst {
-      font-size: .88rem;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-    .edu-detail {
-      font-size: .83rem;
-      color: var(--muted);
-      margin-top: 4px;
-      font-style: italic;
-    }
+    .edu-degree { font-weight: 500; color: var(--navy); font-size: .98rem; }
+    .edu-inst { font-size: .88rem; color: var(--muted); margin-top: 2px; }
+    .edu-detail { font-size: .83rem; color: var(--muted); margin-top: 4px; font-style: italic; }
     .badge {
       display: inline-block;
       margin-top: 6px;
@@ -309,24 +342,9 @@
       gap: 6px;
       margin-bottom: 14px;
     }
-    .work-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--navy);
-    }
-    .work-company {
-      font-size: .9rem;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-    .work-dates {
-      font-family: 'DM Mono', monospace;
-      font-size: .78rem;
-      color: var(--gold);
-      letter-spacing: .06em;
-      white-space: nowrap;
-    }
+    .work-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--navy); }
+    .work-company { font-size: .9rem; color: var(--muted); margin-top: 2px; }
+    .work-dates { font-family: 'DM Mono', monospace; font-size: .78rem; color: var(--gold); letter-spacing: .06em; white-space: nowrap; }
     .work-bullets { padding-left: 0; list-style: none; }
     .work-bullets li {
       font-size: .93rem;
@@ -335,15 +353,42 @@
       padding: 3px 0 3px 18px;
       position: relative;
     }
-    .work-bullets li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-      font-size: .75rem;
-      top: 5px;
-    }
+    .work-bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--gold); font-size: .75rem; top: 5px; }
     .work-bullets strong { color: var(--navy); font-weight: 500; }
+
+    /* ─── GRANTS ────────────────────────────────────────────── */
+    .grants-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 1px 8px rgba(0,0,0,.07);
+      font-size: .88rem;
+    }
+    .grants-table thead tr {
+      background: var(--navy);
+      color: #fff;
+    }
+    .grants-table th {
+      padding: 12px 16px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: var(--gold-lt);
+      text-align: left;
+    }
+    .grants-table td {
+      padding: 11px 16px;
+      color: #2e3a46;
+      border-bottom: 1px solid rgba(0,0,0,.05);
+      vertical-align: top;
+    }
+    .grants-table tr:last-child td { border-bottom: none; }
+    .grants-table tr:hover td { background: rgba(201,168,76,.04); }
+    .grant-id { font-family: 'DM Mono', monospace; font-size: .8rem; color: var(--muted); }
 
     /* ─── AWARDS ───────────────────────────────────────────── */
     .awards-grid {
@@ -358,22 +403,12 @@
       box-shadow: 0 1px 6px rgba(0,0,0,.06);
       border-top: 3px solid var(--gold);
     }
-    .award-year {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--gold);
-      letter-spacing: .1em;
-      margin-bottom: 6px;
-    }
+    .award-year { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: .1em; margin-bottom: 6px; }
     .award-title { font-weight: 500; color: var(--navy); font-size: .95rem; margin-bottom: 4px; }
     .award-desc { font-size: .83rem; color: var(--muted); line-height: 1.5; }
 
     /* ─── RESEARCH ─────────────────────────────────────────── */
-    .research-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 20px;
-    }
+    .research-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
     .research-card {
       background: var(--navy);
       border-radius: var(--radius);
@@ -384,30 +419,14 @@
       display: block;
     }
     .research-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.22); }
-    .research-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      display: block;
-      opacity: .85;
-      transition: opacity .22s;
-    }
+    .research-card img { width: 100%; height: 140px; object-fit: cover; display: block; opacity: .85; transition: opacity .22s; }
     .research-card:hover img { opacity: 1; }
-    .research-card-body { padding: 16px 18px; }
-    .research-card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-    .research-card-desc { font-size: .82rem; color: #8ca3bb; line-height: 1.55; }
+    .research-card-body { padding: 14px 16px; }
+    .research-card-title { font-family: 'Playfair Display', serif; font-size: .97rem; color: #fff; margin-bottom: 5px; }
+    .research-card-desc { font-size: .8rem; color: #8ca3bb; line-height: 1.5; }
 
     /* ─── SKILLS ───────────────────────────────────────────── */
-    .skills-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 40px;
-    }
+    .skills-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
     .skill-group { margin-bottom: 22px; }
     .skill-group-title {
       font-family: 'DM Mono', monospace;
@@ -420,21 +439,8 @@
       padding-bottom: 5px;
     }
     .skill-group ul { list-style: none; padding: 0; }
-    .skill-group li {
-      font-size: .9rem;
-      color: #3a4656;
-      padding: 3px 0;
-      padding-left: 14px;
-      position: relative;
-    }
-    .skill-group li::before {
-      content: '·';
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-      font-size: 1.2rem;
-      line-height: 1.3;
-    }
+    .skill-group li { font-size: .9rem; color: #3a4656; padding: 3px 0 3px 14px; position: relative; }
+    .skill-group li::before { content: '·'; position: absolute; left: 0; color: var(--gold); font-size: 1.2rem; line-height: 1.3; }
 
     /* ─── SELECT PUBLICATIONS ──────────────────────────────── */
     .pub-list { display: flex; flex-direction: column; gap: 14px; }
@@ -452,17 +458,43 @@
     .pub-item:hover { border-left-color: var(--gold); }
     .pub-item a { color: var(--navy); font-weight: 500; text-decoration: none; }
     .pub-item a:hover { color: var(--gold); text-decoration: underline; }
-    .pub-venue {
-      display: inline-block;
+    .pub-venue { display: inline-block; font-family: 'DM Mono', monospace; font-size: .75rem; color: var(--muted); margin-top: 4px; }
+    .pub-more { text-align: center; margin-top: 20px; }
+
+    /* ─── TEACHING ─────────────────────────────────────────── */
+    .teaching-list { display: flex; flex-direction: column; gap: 16px; }
+    .teaching-item {
+      padding: 18px 22px;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 1px 6px rgba(0,0,0,.06);
+      border-left: 3px solid var(--gold);
+    }
+    .teaching-role { font-weight: 500; color: var(--navy); font-size: .97rem; margin-bottom: 3px; }
+    .teaching-where {
       font-family: 'DM Mono', monospace;
-      font-size: .75rem;
-      color: var(--muted);
-      margin-top: 4px;
+      font-size: .78rem;
+      color: var(--gold);
+      letter-spacing: .05em;
+      margin-bottom: 6px;
     }
-    .pub-more {
-      text-align: center;
-      margin-top: 20px;
+    .teaching-desc { font-size: .88rem; color: #3a4656; line-height: 1.65; }
+    .mentees-list { list-style: none; padding: 0; margin-top: 8px; }
+    .mentees-list li { font-size: .87rem; color: #3a4656; padding: 2px 0 2px 14px; position: relative; }
+    .mentees-list li::before { content: '▸'; position: absolute; left: 0; color: var(--gold); font-size: .7rem; top: 5px; }
+
+    /* ─── PATENTS ──────────────────────────────────────────── */
+    .patents-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+    .patent-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      box-shadow: 0 1px 6px rgba(0,0,0,.06);
+      border-left: 3px solid var(--gold);
     }
+    .patent-type { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; }
+    .patent-title { font-weight: 500; color: var(--navy); font-size: .93rem; margin-bottom: 4px; }
+    .patent-desc { font-size: .83rem; color: var(--muted); line-height: 1.5; }
 
     /* ─── OUTREACH ─────────────────────────────────────────── */
     .outreach-list { display: flex; flex-direction: column; gap: 14px; }
@@ -475,26 +507,12 @@
       border-radius: var(--radius);
       box-shadow: 0 1px 5px rgba(0,0,0,.05);
     }
-    .outreach-year {
-      font-family: 'DM Mono', monospace;
-      font-size: .78rem;
-      color: var(--gold);
-      letter-spacing: .06em;
-      padding-top: 2px;
-    }
+    .outreach-year { font-family: 'DM Mono', monospace; font-size: .78rem; color: var(--gold); letter-spacing: .06em; padding-top: 2px; }
     .outreach-title { font-weight: 500; color: var(--navy); font-size: .92rem; margin-bottom: 3px; }
     .outreach-desc { font-size: .85rem; color: var(--muted); line-height: 1.55; }
 
     /* ─── FOOTER ───────────────────────────────────────────── */
-    footer {
-      background: var(--navy);
-      color: #5a7a9a;
-      text-align: center;
-      padding: 28px 20px;
-      font-size: .82rem;
-      letter-spacing: .04em;
-      margin-top: 80px;
-    }
+    footer { background: var(--navy); color: #5a7a9a; text-align: center; padding: 28px 20px; font-size: .82rem; letter-spacing: .04em; margin-top: 80px; }
     footer a { color: var(--gold); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
@@ -503,7 +521,7 @@
       .skills-columns { grid-template-columns: 1fr; }
       .edu-item { grid-template-columns: 1fr; }
       .edu-years { margin-bottom: 4px; }
-      nav a { padding: 0 12px; font-size: 12px; display: none; }
+      nav a { padding: 0 10px; font-size: 12px; display: none; }
       nav.show a { display: flex; }
       .menu-icon { display: flex; }
       nav { flex-wrap: wrap; height: auto; min-height: 52px; padding: 12px 0; }
@@ -525,19 +543,22 @@
   <a href="photos.html">Photos</a>
 </nav>
 
+<!-- SCROLL TO TOP -->
+<div id="scroll-top" title="Back to top">&#8679;</div>
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-label">Optical Scientist · PhD</div>
-    <h1>Julian <span>Gamboa González</span></h1>
-    <p class="hero-sub">Meta Reality Labs &nbsp;·&nbsp; Northwestern University </p>
+    <h1>Julian Gamboa <span>González</span></h1>
+    <p class="hero-sub">Swave Photonics &nbsp;·&nbsp; Northwestern University</p>
     <p class="hero-desc">
-      Designing the next generation of optical, photoni,c and holographic systems — from volume holograms
-      and opto-electronic correlators to photonic integrated circuits. Over 7 years of experimental
-      experience at the frontier of Fourier optics, AR displays, and optical signal processing.
+      Designing the next generation of photonic and holographic systems, from volume holograms
+      and opto-electronic correlators to photonic integrated circuits. Over 8 years of experimental
+      experience at the frontier of Fourier optics, holographic displays, and optical signal processing.
     </p>
     <div class="hero-links">
-      <a class="btn btn-gold" href="https://scholar.google.com/citations?user=kn-VcE4AAAAJ&hl=en" target="_blank">Google Scholar</a>
+      <a class="btn btn-gold" href="https://scholar.google.com/citations?user=9isJLCUAAAAJ&hl=en" target="_blank">Google Scholar</a>
       <a class="btn btn-outline" href="https://www.linkedin.com/in/julian-gamboa-gonzalez/" target="_blank">LinkedIn</a>
       <a class="btn btn-outline" href="https://www.researchgate.net/profile/Julian-Gamboa-4" target="_blank">ResearchGate</a>
       <a class="btn btn-outline" href="publications.html">Publications</a>
@@ -552,21 +573,26 @@
   <div class="section" id="about">
     <div class="section-heading"><h2>About Me</h2></div>
     <p class="about-text">
-      I am a Research Scientist at Meta's Reality Labs (RL Research OPALS Team), where I specialize in
-      advanced holography research and development for next-generation augmented reality displays.
-      My work spans the design, simulation, and fabrication of holographic optical elements (HOEs)
-      with complex optical functions, coupled with fully automated metrology systems.
+      I am an Optical Research Scientist at <strong>Swave Photonics</strong>, working out of the Redmond, WA
+      lab, where I am developing a reference design for a holographic optical projector for display glasses.
+      The work brings together my background in digital holography (computer generated holograms), analog
+      holography (photopolymer HOEs), and experimental automation.
     </p>
     <p class="about-text" style="margin-top:14px;">
-      Previously, I was a research assistant at the
+      Before joining Swave I was a Research Scientist at Meta's Reality Labs (RL Research OPALS Team),
+      where I led holography research and development for next-generation augmented reality displays.
+      Earlier still, I was a research assistant at the
       <a href="http://lapt.ece.northwestern.edu" style="color:var(--navy);font-weight:500;">Lab for Atomic and Photonic Technologies</a>
       at Northwestern University, where I completed my PhD in Electrical Engineering (Photonics &amp; Solid State)
-      in March 2025. My doctoral research focused on applications of analog and digital holography:
+      in 2025. My doctoral research focused on applications of analog and digital holography:
       high-speed opto-electronic correlators, PQ:PMMA volume hologram fabrication, and photonic
       integrated circuits in AlGaAs/GaAs and LiNbO₃.
     </p>
     <p class="about-text" style="margin-top:14px;">
-      I'm passionate about technologies that truly exploit the complex nature of light — from
+      I am currently also building a private holography lab to investigate large-volume holograms.
+    </p>
+    <p class="about-text" style="margin-top:14px;">
+      I'm passionate about technologies that truly exploit the complex nature of light, from
       fundamental science to next-generation displays. Light is an extraordinary tool, and I strive
       to design systems that push its limits.
     </p>
@@ -580,17 +606,18 @@
       <div class="edu-item">
         <div class="edu-years">2018<br>2025</div>
         <div>
-          <div class="edu-degree">Ph.D. in Electrical Engineering — Photonics &amp; Solid State</div>
+          <div class="edu-degree">Ph.D. in Electrical Engineering, Photonics &amp; Solid State</div>
           <div class="edu-inst">Northwestern University &nbsp;·&nbsp; GPA: 3.96</div>
           <div class="edu-detail">Thesis: <em>Digital &amp; Analog Holography for Target Recognition and Free-Space Optical Communication</em></div>
-          <span class="badge">⭐ NU Presidential Fellow 2023</span>
+          <div class="edu-detail">Advisor: Prof. Selim M. Shahriar (LAPT). Committee: Prof. Koray Aydin, Prof. Hooman Mohseni.</div>
+          <span class="badge">NU Presidential Fellow 2023</span>
         </div>
       </div>
 
       <div class="edu-item">
         <div class="edu-years">2018<br>2021</div>
         <div>
-          <div class="edu-degree">M.Sc. in Electrical Engineering — Photonics &amp; Solid State</div>
+          <div class="edu-degree">M.Sc. in Electrical Engineering, Photonics &amp; Solid State</div>
           <div class="edu-inst">Northwestern University &nbsp;·&nbsp; GPA: 3.94</div>
         </div>
       </div>
@@ -601,7 +628,9 @@
           <div class="edu-degree">B.Sc. in Telecommunications &amp; Electronic Systems Engineering</div>
           <div class="edu-inst">ITESM, Mexico City Campus &nbsp;·&nbsp; Grade: 92/100</div>
           <div class="edu-detail">Thesis: <em>Design and Characterization of a High Capacity Optical Link Using Direct Detection OFDM</em></div>
-          <span class="badge">⭐ Graduated with Honors</span>
+          <div class="edu-detail">Exchange: UC Berkeley (2016–2017, Merit Scholarship, first cohort)</div>
+          <span class="badge">Graduated with Honors</span>
+          <span class="badge" style="margin-left:4px;">ITESM Merit Scholarship 2013</span>
         </div>
       </div>
 
@@ -616,10 +645,26 @@
       <div class="work-item">
         <div class="work-header">
           <div>
-            <div class="work-title">Research Scientist</div>
-            <div class="work-company">Meta, Inc. — Reality Labs Research (OPALS Team)</div>
+            <div class="work-title">Optical Research Scientist</div>
+            <div class="work-company">Swave Photonics Inc., Redmond WA</div>
           </div>
-          <div class="work-dates">Apr 2025 – Present</div>
+          <div class="work-dates">Apr 2026 – Present</div>
+        </div>
+        <ul class="work-bullets">
+          <li>Developing a reference design for a holographic optical projector for display glasses.</li>
+          <li>Building wearable formfactor prototypes together with the optical fabrication and metrology systems that support them.</li>
+          <li>Presented prototype work at <strong>SID Display Week 2026</strong>.</li>
+          <li>Combining digital holography (computer generated holograms) with analog holography (photopolymer HOEs) and experimental automation.</li>
+        </ul>
+      </div>
+
+      <div class="work-item">
+        <div class="work-header">
+          <div>
+            <div class="work-title">Research Scientist</div>
+            <div class="work-company">Meta, Inc., Reality Labs Research (OPALS Team)</div>
+          </div>
+          <div class="work-dates">Apr 2025 – Mar 2026</div>
         </div>
         <ul class="work-bullets">
           <li>Led research into coherent analog-holographic display systems for AR, coordinating with cross-functional partners.</li>
@@ -640,7 +685,7 @@
         </div>
         <ul class="work-bullets">
           <li>Researched novel AR displays using holographic techniques.</li>
-          <li>Produced proof-of-concept prototypes with wearable form factor — tech-transferred into a direct product candidate, the only such transfer from this department to date.</li>
+          <li>Produced proof-of-concept prototypes with wearable form factor, tech-transferred into a direct product candidate, the only such transfer from this department to date.</li>
           <li>Developed simulations and automated metrology setups; resulting tools remain in active use.</li>
           <li>Identified KPIs, SWAP-C constraints, and potential roadblocks for the proposed architecture.</li>
         </ul>
@@ -661,8 +706,8 @@
           <li>Designed and manufactured AlGaAs DBR lasers, detectors, ring resonators, and other PIC components in a class-100 cleanroom.</li>
           <li>Built fully automated setups for optical, holographic, and photonic characterization.</li>
           <li>Led &amp; managed a team of four graduate researchers (3 PhD students + 1 postdoc); mentored 2 undergrad and 2 high school students.</li>
-          <li>Published <strong>5 peer-reviewed journal papers</strong>; presented at CLEO, FiO, SPIE PW, and AMOS.</li>
-          <li>Prepared 3 accepted proposals for Argonne National Lab and 3 funded grant proposals (ONR, AFOSR; &gt;$2M total).</li>
+          <li>Authored or co-authored <strong>8 peer-reviewed journal papers</strong> and 23 conference papers; presented at CLEO, FiO, SPIE PW, and AMOS.</li>
+          <li>Prepared <strong>4 accepted proposals</strong> for Argonne National Lab and 5 funded grant proposals (NAVAIR, AFOSR; &gt;$2.6M total).</li>
         </ul>
       </div>
 
@@ -683,10 +728,67 @@
     </div>
   </div>
 
+  <!-- GRANTS & FUNDING -->
+  <div class="section" id="grants">
+    <div class="section-heading"><h2>Grants &amp; Funding</h2></div>
+    <p style="color:var(--muted);font-size:.9rem;margin-bottom:20px;">Selected funded grants and facility proposals associated with my research. Total funded: &gt;$2.6M.</p>
+    <table class="grants-table">
+      <thead>
+        <tr>
+          <th>Agency / Program</th>
+          <th>Grant Number</th>
+          <th>Amount / Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>NAVAIR SBIR</strong>, WDM holography</td>
+          <td><span class="grant-id">N68335-19-C-0874<br>N68335-20-C-0842</span></td>
+          <td>&gt;$1.1M total</td>
+        </tr>
+        <tr>
+          <td><strong>AFOSR SBIR</strong>, Correlator systems</td>
+          <td><span class="grant-id">FA9550-21-C-0003</span></td>
+          <td>$750K</td>
+        </tr>
+        <tr>
+          <td><strong>AFOSR DURIP</strong>, Equipment</td>
+          <td><span class="grant-id">FA9550-21-1-0137</span></td>
+          <td>$141K</td>
+        </tr>
+        <tr>
+          <td><strong>AFOSR</strong>, Superluminal sensors (Shahriar PI)</td>
+          <td><span class="grant-id">FA9550-18-1-0401</span></td>
+          <td>$624,981</td>
+        </tr>
+        <tr>
+          <td><strong>AFOSR</strong>, Correlator research (primary)</td>
+          <td><span class="grant-id">FA9550-18-01-0359</span></td>
+          <td>Primary research grant</td>
+        </tr>
+        <tr>
+          <td><strong>AFOSR</strong>, STHC / Mellin event recognition</td>
+          <td><span class="grant-id">FA9550-23-1-0617</span></td>
+          <td>Active</td>
+        </tr>
+        <tr>
+          <td><strong>Argonne CNM</strong>, PIC facility proposals (4 accepted)</td>
+          <td><span class="grant-id">#61954, #69522, #78778, #83306</span></td>
+          <td>4 accepted proposals</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
   <!-- AWARDS -->
   <div class="section" id="awards">
     <div class="section-heading"><h2>Select Awards</h2></div>
     <div class="awards-grid">
+      <div class="award-card">
+        <div class="award-year">2025</div>
+        <div class="award-title">Best PhD Thesis Award in Electrical Engineering</div>
+        <div class="award-desc">Northwestern University, for the dissertation "Digital &amp; Analog Holography for Target Recognition and Free-Space Optical Communication."</div>
+      </div>
       <div class="award-card">
         <div class="award-year">2024</div>
         <div class="award-title">CLEO Highlighted Talk</div>
@@ -709,13 +811,8 @@
       </div>
       <div class="award-card">
         <div class="award-year">2022</div>
-        <div class="award-title">Correlation One Terminal — 1st Place</div>
+        <div class="award-title">Correlation One Terminal, 1st Place</div>
         <div class="award-desc">Midwest Regional champion in an AI programming competition (Citadel Securities, 30,000+ participants).</div>
-      </div>
-      <div class="award-card">
-        <div class="award-year">2021</div>
-        <div class="award-title">SPIE Education Scholarship</div>
-        <div class="award-desc">Awarded for outreach and potential future contributions to optics and photonics.</div>
       </div>
       <div class="award-card">
         <div class="award-year">2022</div>
@@ -723,9 +820,31 @@
         <div class="award-desc">Selected to attend Optica's annual SLE conference at FiO.</div>
       </div>
       <div class="award-card">
+        <div class="award-year">2021</div>
+        <div class="award-title">SPIE Education Scholarship</div>
+        <div class="award-desc">Awarded for outreach and potential future contributions to optics and photonics.</div>
+      </div>
+      <div class="award-card">
         <div class="award-year">2017</div>
         <div class="award-title">ITESM Graduation Honors</div>
         <div class="award-desc">Graduated at the top of the class within the department major.</div>
+      </div>
+      <div class="award-card">
+        <div class="award-year">2013</div>
+        <div class="award-title">ITESM Merit Scholarship</div>
+        <div class="award-desc">Awarded upon enrollment; first cohort of the UC Berkeley–ITESM exchange program.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PATENTS & IP -->
+  <div class="section" id="patents">
+    <div class="section-heading"><h2>Patents &amp; IP</h2></div>
+    <div class="patents-grid">
+      <div class="patent-card">
+        <div class="patent-type">US Patent Application</div>
+        <div class="patent-title">Holographic WDM Monocular Passive Ranging System</div>
+        <div class="patent-desc">US patent application for a monocular passive ranging system, in which a PQ:PMMA holographic wavelength-division demultiplexer measures range from atmospheric oxygen absorption without an active source.</div>
       </div>
     </div>
   </div>
@@ -734,29 +853,36 @@
   <div class="section" id="research">
     <div class="section-heading"><h2>Research</h2></div>
     <p style="color:var(--muted);font-size:.93rem;margin-bottom:24px;">
-      My PhD research spans three interconnected topics, each rooted in interferometry and coupled-wave theory.
+      My research spans interconnected topics rooted in interferometry and coupled-wave theory.
       Click a card to read more.
     </p>
     <div class="research-grid">
       <a class="research-card" href="research.html#Correlators">
-        <img src="Images/proj_HOC.jpg" alt="Optical Correlators" onerror="this.style.height='60px';this.style.background='#243447'">
+        <img src="../../CV Website/Images/proj_HOC.jpg" alt="Optical Correlators" onerror="this.style.height='60px';this.style.background='#243447'">
         <div class="research-card-body">
           <div class="research-card-title">Optical Correlators</div>
-          <div class="research-card-desc">Hybrid opto-electronic and balanced joint transform correlators for ultra-fast SSRI image recognition.</div>
+          <div class="research-card-desc">HOC, BJTC, DOJTC: ultra-fast SSRI image recognition at 720 fps.</div>
         </div>
       </a>
       <a class="research-card" href="research.html#Holograms">
-        <img src="Images/proj_WDM.png" alt="PQ:PMMA Volume Holograms" onerror="this.style.height='60px';this.style.background='#243447'">
+        <img src="../../CV Website/Images/proj_WDM.png" alt="PQ:PMMA Volume Holograms" onerror="this.style.height='60px';this.style.background='#243447'">
         <div class="research-card-body">
           <div class="research-card-title">PQ:PMMA Volume Holograms</div>
-          <div class="research-card-desc">Fabrication and characterization of thick holographic optical elements for WDM, passive ranging, and AR.</div>
+          <div class="research-card-desc">WDM, passive ranging, AR optics, and cylindrical HOEs.</div>
         </div>
       </a>
       <a class="research-card" href="research.html#PIC">
-        <img src="Images/proj_PIC-sq.png" alt="Photonic Integrated Circuits" onerror="this.style.height='60px';this.style.background='#243447'">
+        <img src="../../CV Website/Images/proj_PIC-sq.png" alt="Photonic Integrated Circuits" onerror="this.style.height='60px';this.style.background='#243447'">
         <div class="research-card-body">
           <div class="research-card-title">Photonic Integrated Circuits</div>
-          <div class="research-card-desc">AlGaAs/GaAs and LiNbO₃ integrated photonic devices — lasers, detectors, ring resonators, isolators.</div>
+          <div class="research-card-desc">AlGaAs/GaAs and LiNbO₃: DBR lasers, detectors, ring resonators.</div>
+        </div>
+      </a>
+      <a class="research-card" href="research.html#Meta">
+        <img src="../../CV Website/Images/proj_WDM.png" alt="Meta / AR Holography" onerror="this.style.height='60px';this.style.background='#243447'">
+        <div class="research-card-body">
+          <div class="research-card-title">Holographic Displays</div>
+          <div class="research-card-desc">HOE design &amp; simulation for AR and display glasses at Meta and Swave Photonics.</div>
         </div>
       </a>
     </div>
@@ -805,6 +931,7 @@
           <ul>
             <li><strong>Expert:</strong> MatLab, C++ (OpenCV, parallel)</li>
             <li><strong>Proficient:</strong> Python, VHDL, Julia, HTML/CSS</li>
+            <li>Proficient in AI-assisted research using tools such as Claude Code</li>
             <li>Zemax OpticStudio, COMSOL Multiphysics</li>
             <li>SolidWorks, Fusion 360 CAD; rapid prototyping</li>
           </ul>
@@ -821,7 +948,7 @@
         <div class="skill-group">
           <div class="skill-group-title">Communication</div>
           <ul>
-            <li>5 peer-reviewed journal papers, 20 conference papers</li>
+            <li>8 peer-reviewed journal papers, 23 conference papers</li>
             <li>Invited seminars on holography, PID, and coupled-wave theory</li>
             <li>Dual native speaker: English &amp; Spanish</li>
             <li>Grant writing, technical reports, and white papers</li>
@@ -842,6 +969,18 @@
         <div class="pub-venue">OE · 2025</div>
       </div>
       <div class="pub-item">
+        X. Shen, <strong>J. Gamboa</strong>, T. Hamidfar, S. A. Mitu, and S. M. Shahriar,
+        "<a href="https://doi.org/10.1364/OE.559479" target="_blank">Temporal scale and shift invariant automatic event recognition using the Mellin transform</a>,"
+        <em>Optics Express</em> 33(12), 25515–25529 (2025).
+        <div class="pub-venue">OE · 2025</div>
+      </div>
+      <div class="pub-item">
+        X. Shen*, <strong>J. Gamboa*</strong>, T. Hamidfar, S. A. Mitu, and S. M. Shahriar,
+        "<a href="https://doi.org/10.1007/s40295-025-00524-4" target="_blank">Ultra-Fast Real-Time Target Recognition Using a Shift, Scale, and Rotation Invariant Hybrid Opto-Electronic Joint Transform Correlator</a>,"
+        <em>Journal of the Astronautical Sciences</em> 72, no. 5 (2025). <em>*Equal contribution.</em>
+        <div class="pub-venue">JotAS · 2025</div>
+      </div>
+      <div class="pub-item">
         <strong>J. Gamboa</strong>, T. Hamidfar, X. Shen, and S. M. Shahriar,
         "<a href="https://doi.org/10.1364/OE.484149" target="_blank">Elimination of optical phase sensitivity in a shift, scale, and rotation invariant hybrid opto-electronic correlator via off-axis operation</a>,"
         <em>Optics Express</em> 31(4), 5990–6002 (2023).
@@ -854,12 +993,6 @@
         <div class="pub-venue">AO · 2021</div>
       </div>
       <div class="pub-item">
-        <strong>J. Gamboa</strong>, T. Hamidfar, J. Bonacum, and S. M. Shahriar,
-        "<a href="https://doi.org/10.1364/OME.440384" target="_blank">Determination of the refractive index modulation of PQ:PMMA holographic phase gratings over a large spectral range through a two-level approximation of the electric susceptibility</a>,"
-        <em>Optical Materials Express</em> 11(11), 3627–3635 (2021).
-        <div class="pub-venue">OME · 2021</div>
-      </div>
-      <div class="pub-item">
         <strong>J. Gamboa</strong>, M. Fouda, and S. M. Shahriar,
         "<a href="https://doi.org/10.1364/OE.27.016507" target="_blank">Demonstration of shift, scale, and rotation invariant target recognition using the hybrid opto-electronic correlator</a>,"
         <em>Optics Express</em> 27(12), 16507–16520 (2019).
@@ -867,7 +1000,49 @@
       </div>
     </div>
     <div class="pub-more">
-      <a class="btn btn-gold" href="publications.html">All 27 Publications →</a>
+      <a class="btn btn-gold" href="publications.html">All 31 Publications →</a>
+    </div>
+  </div>
+
+  <!-- TEACHING & MENTORING -->
+  <div class="section" id="teaching">
+    <div class="section-heading"><h2>Teaching &amp; Mentoring</h2></div>
+    <div class="teaching-list">
+
+      <div class="teaching-item">
+        <div class="teaching-role">Teaching Assistant, ECE 221: Signal Analysis</div>
+        <div class="teaching-where">Northwestern University · Winter 2020</div>
+        <div class="teaching-desc">Conducted office hours, graded assignments, and assisted in course delivery for undergraduate signals &amp; systems.</div>
+      </div>
+
+      <div class="teaching-item">
+        <div class="teaching-role">Teaching Assistant, Telecommunications &amp; Microcontroller Labs</div>
+        <div class="teaching-where">ITESM, Mexico City · 2015–2017 · Prof. Alfredo V. Mantilla Caeiros</div>
+        <div class="teaching-desc">Led hands-on laboratory sessions for undergraduate students in telecom systems and microcontroller programming.</div>
+      </div>
+
+      <div class="teaching-item">
+        <div class="teaching-role">PhD Student Mentoring</div>
+        <div class="teaching-where">LAPT, Northwestern University · 2019–2024</div>
+        <div class="teaching-desc">Supervised and co-advised graduate researchers on projects spanning optical correlators, holograms, and PICs:</div>
+        <ul class="mentees-list">
+          <li><strong>Aarushi Tiwari</strong>: HOC for fundamental science (CERN/LIGO); FiO 2024 lead author</li>
+          <li><strong>Shamima Akter Mitu</strong>: Spatio-temporal holographic correlator (STHC); FiO 2024 co-author</li>
+          <li><strong>Xi Wan</strong>: FPGA development, optical simulations, AlGaAs ring isolators</li>
+          <li><strong>Krish</strong>: FPGA Polar Mellin Transform implementation</li>
+          <li><strong>Fortune</strong>: Neural network accelerator using optical correlators</li>
+        </ul>
+      </div>
+
+      <div class="teaching-item">
+        <div class="teaching-role">Undergraduate &amp; High School Mentoring</div>
+        <div class="teaching-where">Northwestern University · 2021–2023</div>
+        <div class="teaching-desc">
+          Mentored <strong>Tabassom Hamidfar</strong> (undergrad) on PQ:PMMA synthesis (SOP training) and COMSOL waveguide simulations.
+          Guided two high school students through original research projects: FPGA-based Polar Mellin Transform and HOC time-domain signal correlations.
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -875,41 +1050,57 @@
   <div class="section" id="outreach">
     <div class="section-heading"><h2>Outreach &amp; Volunteering</h2></div>
     <div class="outreach-list">
+
       <div class="outreach-item">
-        <div class="outreach-year">2021–2024</div>
+        <div class="outreach-year">2026–Present</div>
         <div>
-          <div class="outreach-title">Outreach Chair &amp; Secretary — SPIE Student Chapter at NU</div>
-          <div class="outreach-desc">Organized workshops, invited speakers, and ran group activities to promote optics education for students of all levels.</div>
+          <div class="outreach-title">Makerspace Volunteer, Centro Cultural Mexicano (CCM), Redmond WA</div>
+          <div class="outreach-desc">Help operate the CCM Makerspace: teaching high school students how to safely use the tools and machines, giving workshops on AI, science, and education, and sharing my own experience with Mexican culture and science.</div>
         </div>
       </div>
       <div class="outreach-item">
-        <div class="outreach-year">2021–2023</div>
+        <div class="outreach-year">2021–2024</div>
         <div>
-          <div class="outreach-title">High School Summer Research Mentor</div>
-          <div class="outreach-desc">Guided two high school students through university-level research: FPGA-based Polar Mellin Transform and opto-electronic time-domain correlations.</div>
+          <div class="outreach-title">Outreach Chair &amp; Secretary, SPIE Student Chapter at NU</div>
+          <div class="outreach-desc">Organized workshops, invited speakers, and ran group activities to promote optics education for students of all levels. Organized the Hologram Workshop (Bayfol HX-200).</div>
         </div>
       </div>
       <div class="outreach-item">
         <div class="outreach-year">2023</div>
         <div>
-          <div class="outreach-title">GUIAR Latinx Mentor — Northwestern University</div>
+          <div class="outreach-title">GUIAR Latinx Mentor, Northwestern University</div>
           <div class="outreach-desc">Mentored a Latinx undergraduate student through the Graduate and Undergraduate Initiative for Advancement and Resources program.</div>
+        </div>
+      </div>
+      <div class="outreach-item">
+        <div class="outreach-year">2020–2021</div>
+        <div>
+          <div class="outreach-title">STEM-icist Outreach Program</div>
+          <div class="outreach-desc">Participated in STEM outreach activities connecting graduate researchers with K-12 students to promote science careers.</div>
         </div>
       </div>
       <div class="outreach-item">
         <div class="outreach-year">2018–2022</div>
         <div>
-          <div class="outreach-title">"Starting a PhD" Seminar Series — ITESM</div>
+          <div class="outreach-title">"Starting a PhD" Seminar Series, ITESM</div>
           <div class="outreach-desc">Prepared and delivered online seminars for Mexican engineering undergraduates on pursuing a PhD in the USA.</div>
+        </div>
+      </div>
+      <div class="outreach-item">
+        <div class="outreach-year">2016</div>
+        <div>
+          <div class="outreach-title">Pioneers in Engineering, UC Berkeley</div>
+          <div class="outreach-desc">Mentored a team of high school students in the Pioneers in Engineering robotics outreach program during the UC Berkeley exchange year.</div>
         </div>
       </div>
       <div class="outreach-item">
         <div class="outreach-year">2015–2017</div>
         <div>
-          <div class="outreach-title">Robotics Workshops for Underprivileged Students — Mexico City</div>
-          <div class="outreach-desc">Designed and taught robotics and electronics workshops for high school students to inspire STEM careers.</div>
+          <div class="outreach-title">Robotics Workshops for Underprivileged Students, Mexico City</div>
+          <div class="outreach-desc">Designed and taught robotics and electronics workshops for high school students to inspire STEM careers. Founded the ITESM robotics team.</div>
         </div>
       </div>
+
     </div>
   </div>
 
@@ -920,5 +1111,25 @@
   <a href="http://www.JulianGamboa.com/">JulianGamboa.com</a>
 </footer>
 
+<script>
+  // Scroll-to-top
+  const btn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Timeline scroll animation
+  const tlItems = document.querySelectorAll('.tl-item');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  tlItems.forEach(el => obs.observe(el));
+
+  // Mobile nav
+  document.querySelectorAll('nav a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('main-nav').classList.remove('show'));
+  });
+</script>
 </body>
 </html>
